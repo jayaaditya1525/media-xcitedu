@@ -1,0 +1,247 @@
+.singleBlog-container{
+    width: 100%;
+    min-height: 100vh;
+    display: block;
+}
+
+.singleBlog-container__backgroundContainer{
+    width: 100%;
+    height: 550px;
+    position: relative;
+    z-index: 0;
+}
+
+.singleBlog-container__backgroundContainer-bgImbx{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.singleBlog-container__backgroundContainer-bgImbx img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.singleBlog-container__backgroundContainer-bgImbx::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top right, rgba(0, 0, 0, 0.75), transparent);
+    z-index: 2;
+}
+
+.singleBlog-container__backgroundContainer-contentContainer{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end ;
+    padding: 0px 100px;
+    padding-bottom: 125px;
+}
+
+.singleBlog-container__backgroundContainer-contentContainer .media-title{
+    font-size: 2.8em;
+    max-width: 80% !important;
+    font-family: var(--font-Montserrat);
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.singleBlog-container__backgroundContainer-contentContainer .mediaBlog-Creator{
+    font-size: 0.8em;
+    font-family: var(--font-Roboto);
+    color: var(--lighter-grey);
+    margin-bottom: 5px;
+}
+
+.singleBlog-container__backgroundContainer-contentContainer .mediaBlog-createdAt{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--grey);
+    font-size: 0.7em;
+}
+
+.singleBlog-container__backgroundContainer-contentContainer .mediaBlog-createdAt ion-icon{
+    font-size: 1.1em;
+    margin-right:5px ;
+}
+
+.singleBlog-container__contentContainer{
+    position: relative;
+    margin-top: -50px;
+    width: 100%;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    z-index: 100;
+}
+
+.singleBlog-container__contentContainer-contentBx{
+    width: 70%;
+    min-height: 50vh;
+    background: var(--white);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    padding: 60px 40px;
+}
+
+.singleBlog-container__contentContainer-contentBx .media-description{
+    font-size: 2em;
+    font-weight: 400;
+    max-width: 95%;
+    color: var(--black);
+    margin-bottom: 40px;
+}
+
+.singleBlog-container__contentContainer-contentBx .media-body{
+    font-weight: 300;
+    color: var(--light-black);
+}
+
+.singleBlog-container__contentContainer-contentBx .extra-section{
+    display: flex;
+    margin-bottom:4px ;
+}
+
+.singleBlog-container__contentContainer-contentBx .extra-section {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.singleBlog-container__contentContainer-contentBx .extra-section ion-icon{
+    font-size: 1.4em;
+    cursor: pointer;
+}
+
+.singleBlog-container__contentContainer-contentBx .extra-section div:nth-child(1) ion-icon{
+    margin-right: 10px;
+}
+
+.singleBlog-container__contentContainer-contentBx .extra-section div:nth-child(2) ion-icon{
+    margin-left: 10px;
+}
+
+.singleBlog-container__contentContainer-contentBx .media-total-like{
+    font-size: 0.8em;
+}
+
+.singleBlog-container__contentContainer-contentBx .hr{
+    width: 100%;
+    height: 0.5px;
+    background: var(--grey);
+    margin: 20px 0;
+}
+
+.singleBlog-container__contentContainer-contentBx .addCommentBox{
+    width: 100%;
+    height: 250px;
+}
+
+.singleBlog-container__contentContainer-contentBx .addCommentBox textarea{
+    width: 100%;
+    height: 200px;
+    background: var(--lighter-grey);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: none;
+    outline: none;
+    padding: 20px;
+    border-radius: 8px;
+    resize: none;
+    margin-bottom: 10px;
+}
+
+.singleBlog-container__contentContainer-contentBx .addCommentBox div{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.singleBlog-container__contentContainer-contentBx .addCommentBox div input{
+    padding: 10px 30px;
+    border: none;
+    text-transform: capitalize;
+    cursor: pointer;
+    background: var(--black);
+    color: var(--white);
+    border-radius:2px ;
+    letter-spacing: 1px;
+}
+
+.singleBlog-container__contentContainer-contentBx .addCommentBox div input:disabled{
+    background: var(--grey);
+    cursor:not-allowed;
+}
+
+.singleBlog-container__contentContainer-relatedNews{
+    position: relative;
+    width: 25%;
+    height: 100vh;
+    background: var(--white);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    padding: 60px 20px;
+    overflow-y: scroll;
+}
+
+.singleBlog-container__contentContainer-relatedNews .bxTitle{
+    font-size: 1.6em;
+    font-weight: 600;
+    color: var(--black);
+ }
+
+ .singleBlog-container__contentContainer-relatedNews .relatedNews_container{
+     width: 100%;
+     height: auto;
+     margin-top:40px ;
+
+ }
+ .singleBlog-container__contentContainer-relatedNews .relatedNews_container-card{
+     width: 100%;
+     min-height: 250px;
+     background: var(--lighter-grey);
+     cursor: pointer;
+     display: block;
+     margin-bottom: 20px;
+ }
+
+ .singleBlog-container__contentContainer-relatedNews .relatedNews_container-card__imgBx{
+     width: 100%;
+     height: 200px;
+ }
+
+ .singleBlog-container__contentContainer-relatedNews .relatedNews_container-card__imgBx img{
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+ }
+
+ .singleBlog-container__contentContainer-relatedNews .relatedNews_container-card__contentBx{
+     width: 100%;
+     padding: 20px 20px;
+ }
+
+ .singleBlog-container__contentContainer-relatedNews .relatedNews_container-card__contentBx .card_title{
+     font-weight: 600;
+ }
+
+ .singleBlog-container__contentContainer-relatedNews .relatedNews_container-card:hover .relatedNews_container-card__contentBx .card_title{
+     text-decoration: underline;
+     color: var(--crimson);
+ }

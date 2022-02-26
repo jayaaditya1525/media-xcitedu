@@ -1,0 +1,96 @@
+{
+    "mainPage" : {
+        "headingNews" : {
+            "main" : {
+                 "img" : "https://ichef.bbc.co.uk/wwhp/624/cpsprodpb/159B8/production/_123340588_mediaitem123340587.jpg",
+                 "url" : "/",
+                 "title" : "Putin orders troops into eastern Ukraine",
+                 "summary" : "Russia's president orders the troops to perform \"peacekeeping functions\" in rebel territories.",
+                 "tag" : "Europe"
+             },
+             "sub" : [
+                 {
+                     "img" : "https://ichef.bbc.co.uk/wwhp/304/cpsprodpb/F53F/production/_123338726_hi074048001.jpg",
+                     "url" : "/",
+                     "title" : "Russia recognises Ukraine separatist regions",
+                     "tag" : "Europe"
+                 },{
+                     "img" : "https://ichef.bbc.co.uk/wwhp/304/cpsprodpb/70DC/production/_123329882_gettyimages-1238656658.jpg",
+                     "url" : "/",
+                     "title" : "Australia reopens border to foreign visitors",
+                     "tag" : "Europe"
+                 },{
+                     "img" : "https://ichef.bbc.co.uk/wwhp/304/cpsprodpb/6F6B/production/_123332582_gettyimages-174890107.jpg",
+                     "url" : "/",
+                     "title" : "Tributes flood in for entrepreneur Jamal Edwards",
+                     "tag" : "Entertainment & Arts"
+                 },{
+                     "img" : "https://ichef.bbc.co.uk/wwhp/304/ibroadcast/images/live/p0/bp/nl/p0bpnlb7.jpg",
+                     "url" : "/",
+                     "title" : "The meanings hidden in a masterpiece",
+                     "tag" : "Culture"
+                 }
+             ]
+        },
+        "newSection" : [
+            {
+                "img" : "https://ichef.bbc.co.uk/wwhp/304/cpsprodpb/15A58/production/_123346688_petrolpump.jpg",
+                "url" : "/",
+                "title" : "Oil prices surge as Ukraine-Russia tensions climb",
+                "summary" : "Crude oil prices rise on Ukraine crisis, prompting the RAC to warn of higher petrol prices.",
+                "tag" : "Business"
+            },
+            {
+                "img" : "https://ichef.bbc.co.uk/wwhp/304/cpsprodpb/115F2/production/_123345117_7bee0722-391b-44b0-9ab4-d167e5ecbdb3.jpg",
+                "url" : "/",
+                "title" : "Tonga internet link restored after eruption",
+                "summary" : "The Pacific island nation was cut off from the world for weeks after an undersea volcano erupted.",
+                "tag" : "Asia"
+            },
+            {
+                "img" : "https://ichef.bbc.co.uk/wwhp/304/cpsprodpb/5530/production/_123280812_newonlyfans_02.-nc.jpg",
+                "url" : "/",
+                "title" : "OnlyFans accused of conspiring to blacklist rivals",
+                "summary" : "​​OnlyFans is accused of conspiring with an unidentified social media company to disable accounts of adult performers working for rivals.",
+                "tag" : "World"
+            },
+            {
+                "img" : "https://ichef.bbci.co.uk/news/976/cpsprodpb/5DE2/production/_123343042_7dac87ab-0ed6-4159-aece-6523b1ca9f7d.jpg",
+                "url" : "/",
+                "title" : "Putin's angry speech rewriting Ukraine's history",
+                "summary" : "Russian president Vladimir Putin's late-night televised speech from the Kremlin, just hours after talks of a summit, was laced with anger.",
+                "tag" : "Europe"
+            }
+        ],
+        "sportSection" : [
+            {
+                "img" : "https://ichef.bbc.co.uk/wwhp/624/cpsprodpb/1350/production/_123344940_furywhyte.png",
+                "url" : "/",
+                "title" : " Whyte signs Fury fight contract",
+                "summary" : " British heavyweight Dillian Whyte signs a contract to fight WBC champion Tyson Fury, with the bout expected to take place in April, potentially at Wembley Stadium.",
+                "tag" : "Boxing"
+            },
+            {
+                "img" : "https://ichef.bbc.co.uk/wwhp/624/cpsprodpb/2552/production/_123345590_gettyimages-1237208689.jpg",
+                "url" : "/",
+                "title" : "Uefa likely to move final from Russia ",
+                "summary" : "Uefa is almost certain to switch the this season's Champions League final away from St Petersburg amid the Ukraine-Russia crisis. ",
+                "tag" : "European Football"
+            },
+            {
+                "img" : "https://ichef.bbc.co.uk/wwhp/624/cpsprodpb/15ABC/production/_123346788_-11a29557-dcd2-4db0-ac84-c4c26b1f0076.png",
+                "url" : "/",
+                "title" : "Premier League & England news conferences plus Champions League build-up",
+                "summary" : "Coverage of Tuesday's Premier League and England news conferences plus Champions League build-up.",
+                "tag" : "Football"
+            },
+            {
+                "img" : "https://ichef.bbci.co.uk/onesport/cps/976/cpsprodpb/103B4/production/_123348466_gettyimages-1238610749.jpg",
+                "url" : "/",
+                "title" : "England need to be more ruthless against Germany",
+                "summary" : "England manager Sarina Wiegman said they need to be more \"ruthless\" against Germany in their final match of the Arnold Clark Cup tournament.",
+                "tag" : "Football"
+            }
+        ]
+    }
+}
