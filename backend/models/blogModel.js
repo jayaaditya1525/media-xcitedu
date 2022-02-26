@@ -20,7 +20,6 @@ const blogSchema = mongoose.Schema(
         tags : [
             {
                 type: String,
-                required : true,
                 default : "news"
             }
         ],
