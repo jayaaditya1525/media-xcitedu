@@ -3,10 +3,13 @@ import React, { useEffect,useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom'
 import Navbar from '../../Components/Navbar/Navbar'
+import PerLoader from '../../Components/PerLoader/PerLoader';
 import { setAllBlogs, setLatestBlog, setSingleBlog } from '../../redux/action/Action';
 import './SingleBlog.css'
 
 const SingleBlog = () => {
+    //loder
+    const [loaderHide,setLoaderHide] = useState(false);
     // comment 
     const [comment, setComment] = useState("");
     const dispatch = useDispatch();
@@ -38,6 +41,7 @@ const SingleBlog = () => {
     const getData = async () =>{
        try {
             const response = await axios("https://mediabackend-xcitedu.herokuapp.com/blog/allBlogs");
+            setLoaderHide(true)
             let data = response.data.data;
             // filter single blog
             filterSingleBlog(data);
@@ -50,6 +54,7 @@ const SingleBlog = () => {
 
     // 
     useEffect(() => {
+        setLoaderHide(false)
         getData();
     },[])
 
@@ -62,6 +67,7 @@ const SingleBlog = () => {
     
   return (
     <>
+        <PerLoader hide={loaderHide}/>
         <Navbar pageName={blog.type}/>
         <>
           <div className="singleBlog-container">

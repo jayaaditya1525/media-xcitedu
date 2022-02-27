@@ -1,0 +1,24 @@
+.PerLoaderForMainPage{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #f3cb0c;
+    z-index: 1000;
+}
+
+.PerLoaderForMainPage#hide{
+    display: none;
+}
+
+.PerLoaderForMainPage .imgBx{
+    width: 100%;
+    height: auto;
+}
+
+.PerLoaderForMainPage .imgBx {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}

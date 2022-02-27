@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import axios from 'axios';
 import MainPage__topHeadings from '../../Components/MainPage__topHeadings/MainPage__topHeadings'
@@ -15,8 +15,10 @@ import {
     setTechBlog,
     setEconomicBlog,
 } from '../../redux/action/Action'
+import PerLoader from '../../Components/PerLoader/PerLoader';
 
 const MainPage = () => {
+    const [loaderHide,setLoaderHide] = useState(false);
     // Dispatch Data to Store
     const dispatch = useDispatch()
 
@@ -62,6 +64,7 @@ const MainPage = () => {
     const fetchAllBlogs = async () => {
         try {
             const response = await axios("https://mediabackend-xcitedu.herokuapp.com/blog/allBlogs");
+            setLoaderHide(true)
             // console.log(response.data.data);
             dispatch(setAllBlogs(response.data.data))
             // calling topmaindata
@@ -86,6 +89,7 @@ const MainPage = () => {
 
     // UseEffect
     useEffect(() => {
+        setLoaderHide(false)
         fetchAllBlogs();
     }, [])
 
@@ -114,6 +118,7 @@ const MainPage = () => {
 
   return (
     <div className="mainPage-container">
+        <PerLoader hide={loaderHide}/>
         <Navbar pageName={"MainPage"} />
         <div className="mainPage-container__heading-container center-row-left-right">
             <div>
