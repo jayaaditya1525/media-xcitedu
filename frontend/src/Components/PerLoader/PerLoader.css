@@ -4,7 +4,11 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background: #f3cb0c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #fff;
     z-index: 1000;
 }
 
@@ -12,13 +16,151 @@
     display: none;
 }
 
-.PerLoaderForMainPage .imgBx{
+.PerLoaderForMainPage .navbar{
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
+    display: block;
 }
 
-.PerLoaderForMainPage .imgBx {
+.PerLoaderForMainPage nav:nth-child(1){
     width: 100%;
+    padding: 20px 100px;
+    background: var(--lighter-grey);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.PerLoaderForMainPage .navbar:nth-child(1) .box{
+    width: 40px;
+    height: 40px;
+    background: var(--grey);
+    margin-right: 10px;
+}
+
+.PerLoaderForMainPage .navbar:nth-child(1) .textBx{
+    width: 80px;
+    height: 20px;
+    border-radius: 50px;
+    background: var(--grey);
+}
+
+.PerLoaderForMainPage .navbar:nth-child(1) .minTextBx{
+    width: 60px;
+    height: 10px;
+    border-radius: 50px;
+    margin-right: 10px;
+    background: var(--grey);
+}
+
+.PerLoaderForMainPage .navbar:nth-child(1) .minCricle{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    margin-right: 10px;
+    background: var(--grey);
+}
+
+.PerLoaderForMainPage .imgBx{
+    height: auto;
+    animation: animate 0.2s linear infinite;
+    position: relative;
+}
+
+.PerLoaderForMainPage .imgBx span{
+    position: absolute;
+    width: 40%;
+    height: 1px;
+    background: var(--grey);
+}
+
+.PerLoaderForMainPage .imgBx span:nth-child(1){
+    top: 20%;
+    animation: lf 0.6s linear infinite;
+    animation-delay: -5s;
+}
+
+.PerLoaderForMainPage .imgBx span:nth-child(2){
+    top: 40%;
+    animation: lf2 0.8s linear infinite;
+    animation-delay: -1s;
+}
+
+.PerLoaderForMainPage .imgBx span:nth-child(3){
+    top: 60%;
+    animation: lf3 0.6s linear infinite;
+}
+
+.PerLoaderForMainPage .imgBx span:nth-child(4){
+    top: 80%;
+    animation: lf4 0.8s linear infinite;
+    animation-delay: -3s;
+}
+
+.PerLoaderForMainPage .text{
+    text-transform:uppercase;
+    font-weight: 200;
+    font-size: 0.8em;
+    color: var(--black);
+}
+
+@keyframes lf {
+    0%{
+        left: 200%;
+    }
+    100%{
+        left: -200%;
+        opacity: 0;
+    }
+}
+
+@keyframes lf2 {
+    0%{
+        left: 200%;
+    }
+    100%{
+        left: -200%;
+        opacity: 0;
+    }
+}
+
+@keyframes lf3 {
+    0%{
+        left: 200%;
+    }
+    100%{
+        left: -100%;
+        opacity: 0;
+    }
+}
+
+@keyframes lf4 {
+    0%{
+        left: 200%;
+    }
+    100%{
+        left: -100%;
+        opacity: 0;
+    }
+}
+
+@keyframes animate {
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(5px);
+    }
+    100%{
+        transform: translateY(-5px);
+    }
+}
+
+.PerLoaderForMainPage .imgBx img{
+    width: 80px;
+    height: 80px;
     height: auto;
     object-fit: cover;
 }
+
