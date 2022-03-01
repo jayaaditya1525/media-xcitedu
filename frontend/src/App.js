@@ -12,6 +12,7 @@ import OtherBlogPage from './Pages/OtherBlogPage/OtherBlogPage';
 import SingleBlog from './Pages/SingleBlog/SingleBlog';
 import Signup from './Pages/Signup/Signup';
 import Login from './Pages/Login/Login';
+import CreateBlog from './Pages/CreateBlog/CreateBlog';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/" element={<MainPage />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
+          <Route exact path="/createblog" element={<CreateBlog />} />
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/news" element={<NewsBlogPage />} />
           <Route exact path="/business" element={<BusinessBlogPage />} />

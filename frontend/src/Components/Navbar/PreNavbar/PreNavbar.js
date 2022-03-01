@@ -19,6 +19,8 @@ const PreNavbar = ({ moreBarController, background }) => {
         <>
           <p>Welcome {userInfo.data.name}</p>
           <button onClick={handleLogout}>Logout</button>
+          <Link to={"/createblog"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Create Blog</span></span></Link>
+
         </>
       ) : (
         <>
