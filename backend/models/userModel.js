@@ -30,6 +30,11 @@ const userSchema = mongoose.Schema(
             default:
                 "https://res.cloudinary.com/dizvyn9b5/image/upload/v1632241265/sjddbfkcij5tz8vokcmo.jpg",
         },
+        isjournalist:{
+            type : Boolean,
+            default : false,
+            requried : true
+        }
 
     },
 
