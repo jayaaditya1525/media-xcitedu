@@ -7,6 +7,7 @@ import store from './redux/store'
 
 ReactDOM.render(
   <BrowserRouter>
+  {/* http://192.168.0.113:3000 */}
     <Provider store={store}>
       <App />
     </Provider>

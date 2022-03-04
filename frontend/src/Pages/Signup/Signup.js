@@ -4,9 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { register } from "../../redux/action/userActions"
-
+import './Signup.css'
 
 const Signup = () => {
+    const [active,setActive] = useState(false);
     const userRegister = useSelector((state) => state.userRegister);
     const { userRegisterInfo } = userRegister;
     const navigate = useNavigate()
@@ -16,6 +17,17 @@ const Signup = () => {
             navigate("/login");
         }
     }, [userRegisterInfo, navigate]);
+
+    const makeActive = () => {
+        setActive(true);
+        console.log(active);
+    }
+    
+    const makeUnActive = () => {
+        setActive(false);
+        console.log(active);
+    }
+
     const submitHandler = (e) => {
         e.preventDefault();
         // if (password !== confirmPassword) {
@@ -59,9 +71,9 @@ const Signup = () => {
     };
     return (
         <div className="Home-container">
-            <Navbar pageName={'Signup'} />
-            <h1>SIGNUP</h1>
-            <form onSubmit={submitHandler}>
+            <Navbar pageName={'Sign up'} />
+            {/* <h1>SIGNUP</h1> */}
+            {/* <form onSubmit={submitHandler}>
                 <br /> name
                 <br /><input onChange={handleChange} type="text" name="name" />
                 <br />email
@@ -73,7 +85,62 @@ const Signup = () => {
                 <br /> profilePicture
                 <br /> <input onChange={uploadProfilePicture} type="file" name="profilePicture" />
                 <br /><button type="submit">Signup</button>
-            </form>
+            </form> */}
+            <div className="signUp-container">
+                <div className="divForGen">
+                    <div>
+                        <span className='cardTitle'>Register For Journalist</span>
+                        <span className="cardDescription">Resgister your account as a journalist.</span>
+                    </div>
+                    <form>
+                        <div className='input'>
+                            <input type="text" placeholder='Enter Your Name*'/>
+                        </div>
+                        
+                        <div className='input'>
+                            <input type="email" placeholder='Enter Your Email*'/>
+                        </div>
+
+                        <div className='input'>
+                            <input type="password" placeholder='Enter Your Password*'/>
+                        </div>
+                        
+                        <div className='upload'>
+                            <span>Upload Your CV.</span>
+                           <input type={"file"} accept={"application/pdf"} />
+                        </div>
+
+                        <div className="submit">
+                            <input type="submit" value="register" />
+                        </div>
+                    </form>
+                </div>
+                <div className="divForUser">
+                <div>
+                    <span className='cardTitle'>Register For User</span>
+                    <span className="cardDescription">Resgister your account as a user.</span>
+                </div>
+                <form>
+                        <div className='input'>
+                            <input type="text" placeholder='Enter Your Name*'/>
+                        </div>
+                        
+                        <div className='input'>
+                            <input type="email" placeholder='Enter Your Email*'/>
+                        </div>
+
+                        <div className='input'>
+                            <input type="password" placeholder='Enter Your Password*'/>
+                        </div>
+
+                        <div className="submit">
+                            <input type="submit" value="register" />
+                        </div>
+                        
+                        
+                    </form>
+                </div>
+            </div>
         </div>
     )
 }
