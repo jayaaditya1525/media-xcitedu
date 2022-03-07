@@ -1,8 +1,7 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
+const mongoose  = require("mongoose");
 
-const userSchema = mongoose.Schema(
-    {
+
+const jounSchema = new mongoose.Schema({
         name: {
             type: String,
             required: true,
@@ -29,25 +28,20 @@ const userSchema = mongoose.Schema(
             required: true,
             default:
                 "https://res.cloudinary.com/dizvyn9b5/image/upload/v1632241265/sjddbfkcij5tz8vokcmo.jpg",
+        },
+        resume : {
+            type: String,
+            required: true,
+            default:
+                "https://res.cloudinary.com/dizvyn9b5/image/upload/v1632241265/sjddbfkcij5tz8vokcmo.jpg",
+        },
+        isjournalist:{
+            type : Boolean,
+            default : false,
+            requried : true
         }
+})
 
-    },
-    {
-        timestamps: true,
-    }
-);
+const jounModel = new mongoose.model("Journalist",jounSchema);
 
-userSchema.methods.matchPassword = async function (enterredPassword) {
-    return await bcrypt.compare(enterredPassword, this.password);
-};
-
-// Middleware for hashing password
-// pre => before saving the user in the database
-userSchema.pre("save", async function () {
-    const salt = await bcrypt.genSalt(5);
-    this.password = await bcrypt.hash(this.password, salt);
-});
-
-const User = mongoose.model("User", userSchema);
-
-module.exports = User;
+module.exports = jounModel

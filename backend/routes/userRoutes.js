@@ -4,7 +4,7 @@ const {
     registerUser,
     userLogin,
     getUserDetails,
-    updateUserDetails,
+    updateUserDetails
 } = require("../controllers/userControllers");
 
 const { protect } = require("../middlewares/protectedRoutes");

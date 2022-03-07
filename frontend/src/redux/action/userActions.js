@@ -16,7 +16,7 @@ export const login = (email, password) => async (dispatch) => {
         // to handle headers
         const config = { headers: { "Content-Type": "application/json" } };
         const { data } = await axios.post(
-            "https://mediabackend-xcitedu.herokuapp.com/user/userLogin",
+            "http://localhost:8080/user/userLogin",
             { email, password },
             config
         );

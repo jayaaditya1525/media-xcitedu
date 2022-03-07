@@ -24,7 +24,8 @@ const createBlog = asyncHandler(async (req, res) => {
         type,
         image,
         description,
-        body
+        body,
+        tags
     } = req.body;
     // const instructorId = req.user._id;
     //   console.log(req.body);
@@ -34,7 +35,8 @@ const createBlog = asyncHandler(async (req, res) => {
         type,
         image,
         description,
-        body
+        body,
+        tags
     });
 
     if (newBlog) {

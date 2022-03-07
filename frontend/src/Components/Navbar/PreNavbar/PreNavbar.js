@@ -12,6 +12,7 @@ const PreNavbar = ({ moreBarController, background }) => {
   }
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+  
   return (
     <div className="preNavbar-container center-row-left" id={background}>
       <Link to={"/"}><span className='web-logo center-row'><img src="https://i.ibb.co/Cb51LQ2/logo-Xcite.jpg" className='web-logo__img' alt="web-logo" /> | <span className="web-logo__name">Media House.</span></span></Link>

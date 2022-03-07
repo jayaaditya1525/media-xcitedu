@@ -13,15 +13,25 @@ LIST OF CONTROLLERS
 
 // Register New user
 const registerUser = asyncHandler(async (req, res) => {
-    const { name, email, password, linkedin, isEmployer, certificateOfIncorporation, pancard, gst, mobile, github, resume, description, profilePicture, education, location, website } = req.body;
+    const { name, email, password} = req.body;
 
     const userExist = await User.findOne({ email });
     if (userExist) {
         res.status(404);
         throw new Error("User already exists");
     } else {
+
+    //     res.status(200).json({
+    //         success: true,
+    //         emailSuccess: true,
+    //         message: "User Register Successfully",
+            
+    //     });
+    // }
+
+    
         const user = await User.create({
-            name, email, password, linkedin, isEmployer, certificateOfIncorporation, pancard, gst, mobile, github, resume, description, profilePicture, education, location, website
+            name, email, password
         });
         // const userId = user._id;
 
@@ -46,8 +56,8 @@ const registerUser = asyncHandler(async (req, res) => {
                 port: 587,
                 secure: false, // true for 465, false for other ports
                 auth: {
-                    user: `${process.env.FSS_EMAIL}`, // generated ethereal user
-                    pass: `${process.env.FSS_PASSWORD}`, // generated ethereal password
+                    user: `ercommerceWebsite@gmail.com`, // generated ethereal user
+                    pass: "`//ercommerceWebsite\\`", // generated ethereal password
                 },
                 // If on localhost
                 tls: {
@@ -59,7 +69,7 @@ const registerUser = asyncHandler(async (req, res) => {
             // send mail with defined transport object
             let mailOptions = {
                 // from: '"Nodemailer Testing" <raj.sanghavi1@svkmmumbai.onmicrosoft.com>', // sender address
-                from: "Team XcitEducation",
+                from: "Abhishek",
                 to: `${user.email}`, // list of receivers
                 subject: "Registration Successful ✔", // Subject line
                 // text: "Hello world?", // plain text body
