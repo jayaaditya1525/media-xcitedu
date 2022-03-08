@@ -88,8 +88,8 @@ const SignUpAsJoun = () => {
   return (
     <div className="divForGen">
                 <div>
-                    <span className='cardTitle'>Register For Journalist</span>
-                    <span className="cardDescription">Resgister your account as a journalist.</span>
+                    <span className='cardTitle'>Looking for a career in journalism</span>
+                    <span className="cardDescription">Looking for a career in journalism. Apply now!</span>
                 </div>
                 <form onSubmit={onJounSubmit}>
 

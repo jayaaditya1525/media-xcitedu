@@ -16,7 +16,7 @@ const SignUpAsUser = () => {
         const formdata = new FormData();
         formdata.append("file",e.target.files[0]);
         formdata.append("upload_preset","mediaHouse");
-        await axios.post("https://api.cloudinary.com/v1_1/webdevoliva/image/upload",formdata)
+        await axios.post("https://api.cloudinary.com/v1_1/xciteeducation/image/upload",formdata)
         .then((res) => {
             setUserSubmit({
                 "name" : userSubmit.name,
