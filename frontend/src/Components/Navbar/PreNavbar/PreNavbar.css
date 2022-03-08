@@ -12,11 +12,34 @@
 .web-logo,
 .user-login-container,
 .pages-navLink,
-.moreBar-container{
+.moreBar-container,
+.user-signup-container,
+.user-account-container{
     border-right: 1px solid var(--grey);
     height: 25px;
     padding: 0 20px;
 }
+
+.user-account-container{
+    padding-right: 50px;
+}
+
+.user-account-container ion-icon{
+    font-size: 1.6em;
+    margin-right: 10px;
+}
+
+.web-logo#notLogged{
+    border:none !important;
+}
+.web-logo#logged{
+    border-right: 1px solid var(--grey);
+}
+
+.user-signup-container{
+    border: none  !important;
+}
+
 
 .web-logo__img{
     width: 25px;
@@ -30,9 +53,6 @@
     margin-left: 5px;
 }
 
-.user-login-container{
-    padding-right:40px ;
-}
 
 .user-login-container ion-icon{
     margin-right: 8px;

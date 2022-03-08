@@ -13,6 +13,7 @@ import SingleBlog from './Pages/SingleBlog/SingleBlog';
 import Signup from './Pages/Signup/Signup';
 import Login from './Pages/Login/Login';
 import CreateBlog from './Pages/CreateBlog/CreateBlog';
+import UserProfile from './Pages/UserProfile/UserProfile';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route exact path="/economic" element={<EconomicBlogPage />} />
           <Route exact path="/blog/:id" element={<SingleBlog />} />
           <Route exact path="/other" element={<OtherBlogPage />} />
+          <Route exact path="/profile" element={<UserProfile />} />
           <Route exact path="/*" element={<NotFound />} />
         </Routes>
       </div>

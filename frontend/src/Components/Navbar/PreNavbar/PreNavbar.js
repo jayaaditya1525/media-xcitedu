@@ -14,30 +14,32 @@ const PreNavbar = ({ moreBarController, background }) => {
   const { userInfo } = userLogin;
   
   return (
-    <div className="preNavbar-container center-row-left" id={background}>
-      <Link to={"/"}><span className='web-logo center-row'><img src="https://i.ibb.co/Cb51LQ2/logo-Xcite.jpg" className='web-logo__img' alt="web-logo" /> | <span className="web-logo__name">Media House.</span></span></Link>
+    <div className={!userInfo ? "preNavbar-container center-row-left-right" : "preNavbar-container center-row-left" } id={background}>
+      <Link to={"/"}><span className='web-logo center-row' id={userInfo ? "logged" : "notLogged"}><img src="https://i.ibb.co/Cb51LQ2/logo-Xcite.jpg" className='web-logo__img' alt="web-logo" /> | <span className="web-logo__name">Media House.</span></span></Link>
       {userInfo ? (
         <>
-          <p>Welcome {userInfo.data.name}</p>
+          {/* <p>Welcome {userInfo.data.name}</p>
           <button onClick={handleLogout}>Logout</button>
-          <Link to={"/createblog"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Create Blog</span></span></Link>
-
+          <Link to={"/createblog"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Create Blog</span></span></Link> */}
+          <Link to={"/profile"}><span className='user-account-container center-row preNavbar-navLink'><ion-icon name="person-circle-outline"></ion-icon><span className='navLink'>Your Account</span></span></Link>
+          <Link to={"/home"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Home</span></span></Link>
+          <Link to={"/News"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>News</span></span></Link>
+          <Link to={"/Business"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Business</span></span></Link>
+          <Link to={"/Sociology"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Sociology</span></span></Link>
+          <Link to={"/Tech"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Tech</span></span></Link>
+          <Link to={"/Economic"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Economic</span></span></Link>
+          <Link to={"/Other"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Other</span></span></Link>
+          <span className='moreBar-container center-row-left-right preNavbar-navLink' id={moreBar !== true ? "active" : null} onClick={() => { setMoreBar(!moreBar); moreBarController(moreBar) }}><span className='navLink'>More</span> <ion-icon name="caret-down-outline"></ion-icon></span>
+          <div className='searchNews-Input center-row'><input type="text" placeholder='Search...' value={searchData} onChange={(e) => { setSearchData(e.target.value) }} /><span className="searchNews-Input__icon center-row"><ion-icon name="search-outline"></ion-icon></span></div>
         </>
       ) : (
         <>
-          <Link to={"/login"}><span className='user-login-container center-row preNavbar-navLink'><ion-icon name="person-outline"></ion-icon> <span className='navLink'>Login</span></span></Link>
-          <Link to={"/signup"}><span className='user-login-container center-row preNavbar-navLink'><ion-icon name="person-outline"></ion-icon> <span className='navLink'>Signup</span></span></Link>
+          <div className='center-row'>
+            <Link to={"/login"}><span className='user-login-container center-row preNavbar-navLink'><span className='navLink'>Login</span></span></Link>
+            <Link to={"/signup"}><span className='user-signup-container center-row preNavbar-navLink'><span className='navLink'>Signup</span></span></Link>
+          </div>
         </>
       )}
-      <Link to={"/home"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Home</span></span></Link>
-      <Link to={"/News"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>News</span></span></Link>
-      <Link to={"/Business"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Business</span></span></Link>
-      <Link to={"/Sociology"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Sociology</span></span></Link>
-      <Link to={"/Tech"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Tech</span></span></Link>
-      <Link to={"/Economic"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Economic</span></span></Link>
-      <Link to={"/Other"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Other</span></span></Link>
-      <span className='moreBar-container center-row-left-right preNavbar-navLink' id={moreBar !== true ? "active" : null} onClick={() => { setMoreBar(!moreBar); moreBarController(moreBar) }}><span className='navLink'>More</span> <ion-icon name="caret-down-outline"></ion-icon></span>
-      <div className='searchNews-Input center-row'><input type="text" placeholder='Search...' value={searchData} onChange={(e) => { setSearchData(e.target.value) }} /><span className="searchNews-Input__icon center-row"><ion-icon name="search-outline"></ion-icon></span></div>
     </div>
   )
 }
