@@ -5,9 +5,6 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    background: url("https://images.pexels.com/photos/3953481/pexels-photo-3953481.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-    background-size:cover ;
-    background-position: center;
 }
 
 .hr{
@@ -16,183 +13,14 @@
     background: #111;
 }
 
-
-.signUp-container .divForGen,
-.signUp-container .divForUser{
-    margin: 0 50px;
-    width: 500px;
-    height: 700px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    padding:40px 40px;
-    background: #eee;
-}
-
-.signUp-container .divForGen div,
-.signUp-container .divForUser div
-{
-    margin-bottom: 50px;
-    width: 100%;
-}
-
-.signUp-container .cardTitle{
-    font-size: 1.2em;
-    font-weight: 600;
-    color: var(--lighter-black);
-    margin-bottom: 8px;
-    padding: 5px 20px;
-    position: relative;
-    display: block;
-}
-
-.signUp-container .cardTitle::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 8px;
+.signUp-container .imgBx{
+    width: 50%;
     height: 100%;
 }
 
-.signUp-container .divForGen .cardTitle::before{
-    background: var(--crimson);
-}
-
-.signUp-container .divForUser .cardTitle::before{
-    background: var(--green);
-}
-
-.signUp-container .cardDescription{
-    display: block;
-    font-size: 0.9em;
-    font-weight: 300;
-}
-
-.signUp-container form{
-    width: 100%;
-    height: 440px;
-    padding: 0 10px;
-    position: relative;
-}
-
-.signUp-container div form .input{
-    width: 100%;
-    height: 40px;
-    position: relative;
-    margin-bottom: 30px;
-}
-
-
-.signUp-container  form .input input{
+.signUp-container .imgBx img{
     width: 100%;
     height: 100%;
-    border: none;
-    outline: none;
-    padding: 0 5px;
-    background: transparent;
+    object-fit: cover;
 }
 
-.signUp-container .divForGen form .input input{
-    border-bottom: 1px solid var(--crimson);
-}
-
-.signUp-container .divForUser form .input input{
-    border-bottom: 1px solid var(--green);
-}
-
-.signUp-container div form .input input::placeholder{
-    font-size: 1em;
-    color: var(--lighter-black);
-} 
-
-
-
-.signUp-container div form .submit{
-    position: absolute;
-    top: 85%;
-
-    bottom: 0 !important;
-    left: 0;
-}
-
-.signUp-container div form .submit input{
-    padding: 10px 30px;
-    border: none;
-    outline: none;
-    color: var(--white);
-    border-radius: 4px;
-    text-transform: capitalize;
-    cursor: pointer;
-    
-}
-
-.signUp-container .divForGen form .submit input{
-    background: var(--crimson);
-}
-
-
-.signUp-container .divForUser form .submit input{
-    background: var(--green);
-}
-
-.signUp-container form .profile,
-.signUp-container form .resume{
-    display: block;
-    margin: 0;
-    margin-bottom: 20px;
-}
-
-.signUp-container form .profile label,
-.signUp-container form .resume label{
-    color: var(--lighter-black);
-    font-size: 0.9em;
-}
-
-.signUp-container form .profile input,
-.signUp-container form .resume input{
-    margin-top: 5px;
-}
-
-.signUp-container form .resume{
-    margin-bottom: 40px;
-}
-
-.signUp-container .divForUser form .profile{
-    margin-bottom: 40px;
-}
-
-.signUp-container .extraLine{
-    margin-top: -20px;
-    font-size: 0.8em;
-}
-
-.signUp-container .extraLine a{
-    text-decoration: underline;
-    color: #0000EE;
-}
-
-.signUp-container .OR{
-    color:var(--white);
-    font-size: 4em;
-    text-transform: uppercase;
-    position: relative;
-}
-
-
-.signUp-container .OR::before,
-.signUp-container .OR::after{
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1px;
-    height: 100px;
-    background: var(--white);
-}
-
-.signUp-container .OR::before{
-    top: -110px;
-}
-
-.signUp-container .OR::after{
-    bottom: -110px;
-}

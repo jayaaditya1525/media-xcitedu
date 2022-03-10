@@ -1,0 +1,84 @@
+.divForUser__container{
+    height: 100%;
+    width: 50%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    background: var(--white);
+}
+
+.divForUser__container-div{
+    width: 70%;
+}
+
+
+.divForUser__container-div form{
+    width: 100%;
+}
+
+
+.divForUser__container-div form .cardTitle{
+    color: var(--black);
+    width: 250px;
+    font-weight: 600;
+    font-size: 1.5em;
+    margin-bottom: 60px;
+    border-left: 8px solid var(--green);
+    display: inline-block;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.divForUser__container-div form .input{
+    margin-bottom: 20px;
+}
+
+.divForUser__container-div form .input span,
+.divForUser__container-div form .profile span{
+  font-size: 16px;
+  margin-bottom: 5px;
+  display: inline-block;
+  color: var(--black);
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.divForUser__container-div form .input input,
+.divForUser__container-div form .profile input{
+   width: 100%;
+  padding: 10px 20px;
+  outline: none;
+  font-weight: 400;
+  border: 1px solid var(--black);
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #000000;
+  background: transparent;
+  border-radius: 5px;
+}
+
+.divForUser__container-div form .button{
+    margin-top: 20px;
+}
+
+
+.divForUser__container-div form .button input{
+    padding: 10px 30px;
+    background: var(--green);
+    text-transform: capitalize;
+    color: #fff;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    border-radius: 20px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+
+.divForUser__container-div form p{
+    margin-top: 80px;
+}
+
+.divForUser__container-div form p a{
+    color: var(--green);
+}

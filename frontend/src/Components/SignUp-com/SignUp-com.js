@@ -1,4 +1,5 @@
 import axios from 'axios';
+import './SignUp-com.css'
 import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom'
 
@@ -70,15 +71,13 @@ const SignUpAsUser = () => {
 
 
   return (
-    <div className="divForUser">
-                <div>
-                    <span className='cardTitle'>Register For User</span>
-                    <span className="cardDescription">Resgister your account as a user.</span>
-                </div>
+    <div className="divForUser__container center-row">
+                <div className='divForUser__container-div'>
                 <form onSubmit={onUserSubmit}>
-
+                    <h2 className='cardTitle'>Register For User</h2>
                         <div className='input'>
-                            <input type="text" placeholder='Enter Your Name*' value={userSubmit.name} onChange={(e) => {
+                            <span>Enter Your Name*</span>
+                            <input type="text" value={userSubmit.name} onChange={(e) => {
                                 setUserSubmit({
                                     "name" : e.target.value,
                                     "email" : userSubmit.email,
@@ -89,7 +88,8 @@ const SignUpAsUser = () => {
                         </div>
                         
                         <div className='input'>
-                            <input type="email" placeholder='Enter Your Email*'  onChange={(e) => {
+                            <span>Enter Your Email*</span>
+                            <input type="email"  onChange={(e) => {
                                 setUserSubmit({
                                     "name" : userSubmit.name,
                                     "email" : e.target.value,
@@ -100,7 +100,8 @@ const SignUpAsUser = () => {
                         </div>
 
                         <div className='input'>
-                            <input type="password" placeholder='Enter Your Password*' onChange={(e) => {
+                            <span>Enter Your Password*</span>
+                            <input type="password" onChange={(e) => {
                                 setUserSubmit({
                                     "name" : userSubmit.name,
                                     "email" : userSubmit.email,
@@ -111,19 +112,18 @@ const SignUpAsUser = () => {
                         </div>
 
                         <div className="profile">
-                            <label htmlFor="Upload Your Profile Image">Upload Your Profile Image</label>
+                            <span>Enter Your Avatar*</span>
                             <input type="file"  accept='application/image' onChange={uploadImg}/>
                         </div>
 
-                        <div className="submit">
+                        <div className="button">
                             <input type="submit" value="register"/>
                         </div>
-                        
                     
+                        <p className='extraLine'>Already On Media House? <a href='/login'>Login</a></p>
                     </form>
-                    <div className="hr"></div>
-                    <p className='extraLine'>Already On Media House? <a href='/login'>Login</a></p>
                 </div>
+            </div>
   )
 }
 
