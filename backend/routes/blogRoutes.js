@@ -12,6 +12,8 @@ const {
     getBlogById,
     getAllOtherBlogs,
     getAllBlogsOfUser,
+    likeBlog,
+    removeLikeBlog
 } = require("../controllers/blogControllers");
 
 const {
@@ -55,7 +57,11 @@ router.route("/oneBlog/:id").get(getBlogById);
 // Get all Blogss by id
 router.route("/allBlogs/:id").get(protect, getAllBlogsOfUser);
 
+// Like blog
+router.post("/likeBlog",likeBlog);
 
+// removelike blog
+router.post("/removeLikeBlog",removeLikeBlog);
 
 
 

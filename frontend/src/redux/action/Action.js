@@ -63,6 +63,48 @@ export const setOtherBlog = (blogs) => {
         playload: blogs
     }
 }
+export const setAllNewsBlog = (blogs) => {
+    return {
+        type: ActionType.SET_ALL_NEWS_BLOGS,
+        playload: blogs
+    }
+}
+
+
+export const setAllBusinessBlog = (blogs) => {
+    return {
+        type: ActionType.SET_ALL_BUISNESS_BLOGS,
+        playload: blogs
+    }
+}
+
+export const setAllSociologyBlog = (blogs) => {
+    return {
+        type: ActionType.SET_ALL_SOCIOLOGY_BLOGS,
+        playload: blogs
+    }
+}
+
+export const setAllTechBlog = (blogs) => {
+    return {
+        type: ActionType.SET_ALL_TECH_BLOGS,
+        playload: blogs
+    }
+}
+
+export const setAllEconomicBlog = (blogs) => {
+    return {
+        type: ActionType.SET_ALL_ECONOMICS_BLOGS,
+        playload: blogs
+    }
+}
+
+export const setAllOtherBlog = (blogs) => {
+    return {
+        type: ActionType.SET_ALL_OTHER_BLOGS,
+        playload: blogs
+    }
+}
 
 export const setSingleBlog = (blog) => {
     return {
@@ -78,3 +120,10 @@ export const setLatestBlog = (blogs) => {
     }
 }
 
+
+export const setIsLiked = (liked) => {
+    return{
+        type : ActionType.SET_IS_LIKED,
+        playload : liked
+    }
+}

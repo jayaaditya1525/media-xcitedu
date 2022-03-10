@@ -25,13 +25,16 @@ const Login = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(login(user.email, user.password));
+        console.log("Login dispatch");
     };
     useEffect(() => {
         if (userInfo) {
 
-            navigate("/home");
+            navigate("/");
+            console.log("LoggedIn");
+            console.log(userInfo);
         }
-    }, []);
+    }, [userInfo, navigate]);
     return (
         <div className="Home-container">
             <Navbar pageName={'MainPage'} />

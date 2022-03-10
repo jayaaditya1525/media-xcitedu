@@ -16,139 +16,66 @@ LIST OF CONTROLLERS
 11. Add a chapter
 */
 
-// Create a new Blog
+
+// create blog
 const createBlog = asyncHandler(async (req, res) => {
-    const {
+    const {userId,title,type,tags,image,description,body} = req.body;
+    await Blog.create({
         userId,
         title,
         type,
+        tags,
         image,
         description,
-        body,
-        tags
-    } = req.body;
-    // const instructorId = req.user._id;
-    //   console.log(req.body);
-    const newBlog = await Blog.create({
-        userId,
-        title,
-        type,
-        image,
-        description,
-        body,
-        tags
-    });
+        body
+    }).then((data) => {
+        res.status(200).json({
+            success : true,
+            message : "Blog Created Succefully",
+            data
+        })
+    }).catch((err) => {
+        console.log(`Error : ${err}`);
+    })
+})
 
-    if (newBlog) {
-        res.status(201).json({
-            success: true,
-            data: newBlog,
-        });
-    } else {
+// like to blog
+const likeBlog = asyncHandler(async (req,res) => {
+    const {userId,blogId} = req.body;
+    await Blog.findByIdAndUpdate({_id : blogId},{$push : {likes : userId}})
+    .then((blog) => {
+        res.status(200).json({
+            success : true,
+            message : "Blog found & liked",
+        })
+    }).catch((err) => {
         res.status(400).json({
-            success: false,
-            message: "Blog not Created Successfully",
-        });
-    }
-});
+            success : false,
+            message : "Blog not found",
+            Error : err
+        })
+    })
 
-// Create a new chapter
-// const createChapter = asyncHandler(async (req, res) => {
-//   const {
-//     chapterNumber,
-//     chapterName,
-//     chapterVideoLink,
-//     chapterVideoDescription,
-//     chapterStudyMaterial,
-//   } = req.body;
-//   const BlogId = req.params.id;
-// console.log(BlogId);
-// await Blog.findOneAndUpdate(
-//   { _id: BlogId },
-//   {
-//     $push: {
-//       chapters: {
-//         chapterNumber: chapterNumber,
-//         chapterName: chapterName,
-//         chapterVideoLink: chapterVideoLink,
-//         chapterVideoDescription: chapterVideoDescription,
-//         chapterStudyMaterial,
-//       },
-//     },
-//   },
-//   function (error, success) {
-//     if (error) {
-//       console.log(error);
-//     } else {
-//       console.log(success);
-//     }
-//   }
-// );
+})
 
-//   const Blog = await Blog.findById(req.params.id);
-//   // console.log(Blog);
+// like to blog
+const removeLikeBlog = asyncHandler(async (req,res) => {
+    const {userId,blogId} = req.body;
+    await Blog.findByIdAndUpdate({_id : blogId},{$pull : {likes : userId}})
+    .then((blog) => {
+        res.status(200).json({
+            success : true,
+            message : "Blog found & remove like",
+        })
+    }).catch((err) => {
+        res.status(400).json({
+            success : false,
+            message : "Blog not found",
+            Error : err
+        })
+    })
 
-//   if (Blog) {
-//     if (Blog.chapters) {
-//       if (Blog.chapters.length === 0) {
-//         Blog.chapters = [
-//           {
-//             chapterNumber,
-//             chapterName,
-//             chapterVideoLink,
-//             chapterVideoDescription,
-//             chapterStudyMaterial,
-//           },
-//         ];
-//         const updatedBlog = await Blog.save();
-//         // res.status(200).json({
-//         //   success: true,
-//         //   data: updatedBlog,
-//         // });
-//         // Blog.save();
-//       } else {
-//         Blog.chapters.push({
-//           chapterNumber,
-//           chapterName,
-//           chapterVideoLink,
-//           chapterVideoDescription,
-//           chapterStudyMaterial,
-//         });
-//         const updatedBlog = await Blog.save();
-//         // res.status(200).json({
-//         //   success: true,
-//         //   data: updatedBlog,
-//         // });
-//       }
-//     } else {
-//       Blog.chapters = [
-//         {
-//           chapterNumber,
-//           chapterName,
-//           chapterVideoLink,
-//           chapterVideoDescription,
-//           chapterStudyMaterial,
-//         },
-//       ];
-//       // Blog.save();
-//       // const updatedBlog = await Blog.save();
-//       // res.status(200).json({
-//       //   success: true,
-//       //   data: updatedBlog,
-//       // });
-//     }
-//     // await Blog.save();
-//     // res.status(201).json({
-//     //   success: true,
-//     //   data: Blog,
-//     // });
-//   } else {
-//     res.status(400).json({
-//       success: false,
-//       message: "Chapter not added Successfully",
-//     });
-//   }
-// });
+})
 
 // Get details of all Blogs
 const getAllBlogs = asyncHandler(async (req, res) => {
@@ -316,4 +243,6 @@ module.exports = {
     getBlogById,
     getAllBlogsOfUser,
     getAllBlogsOfEmployer,
+    likeBlog,
+    removeLikeBlog
 };

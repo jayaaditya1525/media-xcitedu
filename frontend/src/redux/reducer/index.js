@@ -9,7 +9,9 @@ import {
     TechBlogsReducer,
     EconomicBlogsReducer,
     singleBlogReducer,
-    latestBlogReducer
+    latestBlogReducer,
+    OtherBlogsReducer,
+    checkLikedBlogReducer
 } from './Reducer'
 import {
     userLoginReducer,
@@ -25,10 +27,12 @@ const reducer = combineReducers({
     SociologyBlogs: SociologyBlogsReducer,
     TechBlogs: TechBlogsReducer,
     EconomicBlogs: EconomicBlogsReducer,
+    OtherBlogs: OtherBlogsReducer,
     SingleBlog: singleBlogReducer,
     LatestBlog: latestBlogReducer,
     userLogin: userLoginReducer,
-    userRegister: userRegisterReducer
+    userRegister: userRegisterReducer,
+    isBlogLiked : checkLikedBlogReducer
 })
 
 export default reducer;

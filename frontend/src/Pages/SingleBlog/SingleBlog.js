@@ -4,23 +4,40 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom'
 import Navbar from '../../Components/Navbar/Navbar'
 import PerLoader from '../../Components/PerLoader/PerLoader';
-import { setAllBlogs, setLatestBlog, setSingleBlog } from '../../redux/action/Action';
+import { setAllBlogs, setIsLiked, setLatestBlog, setSingleBlog } from '../../redux/action/Action';
 import './SingleBlog.css'
 
 const SingleBlog = () => {
+    // like handler
+    const [likeBlog,setLikeBlog] = useState(false);
+
     //loder
     const [loaderHide,setLoaderHide] = useState(false);
     // comment 
     const [comment, setComment] = useState("");
     const dispatch = useDispatch();
     const {id} = useParams();
-
+    const userInfo = useSelector((state) => state.userLogin.userInfo);
+    const userId  = userInfo.data._id;
+    console.log(`user Id ${userId}`);
+    const checkBlogLike = useSelector((state) => state.isBlogLiked.isLiked);
+    
     // filter single blog
     const filterSingleBlog = (response) => {
-        console.log(id);
         response.map((e,i) => {
             if(e._id === id){
                 dispatch(setSingleBlog(e));
+                const data = e.likes;
+                
+                data.map((b) => {
+                    if(b === userId){
+                        dispatch(setIsLiked(true))
+                        setLikeBlog(true)
+                    }else{
+                        dispatch(setIsLiked(false))
+                        setLikeBlog(false)
+                    }
+                })
             }
         })
     }
@@ -52,6 +69,8 @@ const SingleBlog = () => {
        }
     }
 
+    
+
     // 
     useEffect(() => {
         setLoaderHide(false)
@@ -62,8 +81,49 @@ const SingleBlog = () => {
     const blog = useSelector((state) => state.SingleBlog.singleBlog);
     //get latest blog
     const latestBlog = useSelector((state) => state.LatestBlog.latestBlog);
-    
+     
 
+    //like handler 
+    const likeHandler = async() => {
+        setLikeBlog(!likeBlog);
+        const body = JSON.stringify({
+            "userId" : userInfo.data._id,
+            "blogId" : id
+        })
+
+        if(likeBlog === false){
+            await axios({
+                method : "POST",
+                url : "http://localhost:8080/blog/likeBlog",
+                headers : {
+                    "Content-Type" : "application/json",
+                },
+                data : body,
+            }).then((res) => {
+                console.log(res);
+            }).catch((err) => {
+                console.log(`something went wrong : ${err}`);
+            })
+        }else{
+            await axios({
+                method : "POST",
+                url : "http://localhost:8080/blog/removeLikeBlog",
+                headers : {
+                    "Content-Type" : "application/json",
+                },
+                data : body,
+            }).then((res) => {
+                console.log(res);
+            }).catch((err) => {
+                console.log(`something went wrong : ${err}`);
+            })
+        }
+    }
+
+    const totalLike = blog.likes;
+
+    
+    
     
   return (
     <>
@@ -96,7 +156,7 @@ const SingleBlog = () => {
                           <span className="media-body">{blog.body}</span>
                           <div className="extra-section">
                               <div>
-                                <span><ion-icon name="heart-outline"></ion-icon></span>
+                                <span onClick={likeHandler}>{likeBlog === true ? <ion-icon name="heart" style={{color : "red"}}></ion-icon> : <ion-icon name="heart-outline"></ion-icon>} {}</span>
                                 <span><ion-icon name="share-social-outline"></ion-icon></span>
                               </div>
                               <div>
@@ -106,7 +166,7 @@ const SingleBlog = () => {
                               </div>
                           </div>
                           <span className="media-total-like">
-                                Total Like 2,480,000
+                                Total Like {totalLike !== undefined ? totalLike.length : "0"}
                           </span>
                           <div className="hr"></div>
                           <form>

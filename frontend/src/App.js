@@ -14,13 +14,17 @@ import Signup from './Pages/Signup/Signup';
 import Login from './Pages/Login/Login';
 import CreateBlog from './Pages/CreateBlog/CreateBlog';
 import UserProfile from './Pages/UserProfile/UserProfile';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const user = useSelector((state) => state.userLogin);
+    const {userInfo} = user;
   return (
     <>
       <div className="container">
         <Routes>
-          <Route exact path="/" element={<MainPage />} />
+          
+          <Route exact path="/" element={!userInfo ? <MainPage/> : <Home />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/createblog" element={<CreateBlog />} />

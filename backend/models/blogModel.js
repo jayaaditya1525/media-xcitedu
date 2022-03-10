@@ -23,6 +23,11 @@ const blogSchema = mongoose.Schema(
                 default : "news"
             }
         ],
+        likes : [
+            {
+                type : String,
+            }
+        ],
         image: {
             type: String,
             required: true,
@@ -38,7 +43,6 @@ const blogSchema = mongoose.Schema(
         }
 
     },
-
     {
         timestamps: true,
     }
