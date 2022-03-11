@@ -99,7 +99,7 @@ export const EconomicBlogsReducer = (state = {economicBlog : [], allEconomicBlog
 
 export const OtherBlogsReducer = (state = {otherBlog : [],allOtherBlog : []},{type,playload}) => {
     switch (type) {
-        case ActionType.SET_ECONOMICS_BLOGS:
+        case ActionType.SET_ALL_OTHER_BLOGS:
             return {...state,otherBlog : playload}
 
         case ActionType.SET_ALL_OTHER_BLOGS:

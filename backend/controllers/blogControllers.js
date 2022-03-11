@@ -97,7 +97,7 @@ const getAllBlogs = asyncHandler(async (req, res) => {
 
 // Get details of all Frontend Blogs
 const getAllBusinessBlogs = asyncHandler(async (req, res) => {
-    const Blogs = await Blog.find({ type: "business" });
+    const Blogs = await Blog.find({ type: "Business" });
     if (Blogs.length > 0) {
         res.status(200).json(Blogs);
     } else {
@@ -109,7 +109,7 @@ const getAllBusinessBlogs = asyncHandler(async (req, res) => {
 
 // Get details of all Backend Blogs
 const getAllAffiliateBlogs = asyncHandler(async (req, res) => {
-    const Blogs = await Blog.find({ type: "affiliate" });
+    const Blogs = await Blog.find({ type: "Affiliate" });
     if (Blogs.length > 0) {
         res.status(200).json(Blogs);
     } else {
@@ -121,7 +121,7 @@ const getAllAffiliateBlogs = asyncHandler(async (req, res) => {
 
 // Get details of all Database Blogs
 const getAllSociologyBlogs = asyncHandler(async (req, res) => {
-    const Blogs = await Blog.find({ type: "sociology" });
+    const Blogs = await Blog.find({ type: "Sociology" });
     if (Blogs.length > 0) {
         res.status(200).json(Blogs);
     } else {
@@ -133,7 +133,7 @@ const getAllSociologyBlogs = asyncHandler(async (req, res) => {
 
 // Get details of all Fullstack Blogs
 const getAllNewsBlogs = asyncHandler(async (req, res) => {
-    const Blogs = await Blog.find({ type: "news" });
+    const Blogs = await Blog.find({ type: "News" });
     if (Blogs.length > 0) {
         res.status(200).json(Blogs);
     } else {
@@ -145,7 +145,7 @@ const getAllNewsBlogs = asyncHandler(async (req, res) => {
 
 // Get details of all Designing Blogs
 const getAllTechBlogs = asyncHandler(async (req, res) => {
-    const Blogs = await Blog.find({ type: "tech" });
+    const Blogs = await Blog.find({ type: "Tech" });
     if (Blogs.length > 0) {
         res.status(200).json(Blogs);
     } else {
@@ -157,7 +157,7 @@ const getAllTechBlogs = asyncHandler(async (req, res) => {
 
 // Get details of all Designing Blogs
 const getAllEconomicBlogs = asyncHandler(async (req, res) => {
-    const Blogs = await Blog.find({ type: "economic" });
+    const Blogs = await Blog.find({ type: "Economic" });
     if (Blogs.length > 0) {
         res.status(200).json(Blogs);
     } else {
@@ -169,7 +169,7 @@ const getAllEconomicBlogs = asyncHandler(async (req, res) => {
 
 // Get details of all Other Blogs
 const getAllOtherBlogs = asyncHandler(async (req, res) => {
-    const Blogs = await Blog.find({ type: "other" });
+    const Blogs = await Blog.find({ type: "Other" });
     if (Blogs.length > 0) {
         res.status(200).json(Blogs);
     } else {

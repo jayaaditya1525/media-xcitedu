@@ -118,12 +118,12 @@ const CreateBlog = () => {
                 <br /><select onChange={(e) => setBlogData({
                     ...blogData,type:e.target.value
                 })} name="type" id="blog">
-                    <option value="news">News</option>
-                    <option value="business">Business</option>
-                    <option value="sociology">Sociology</option>
-                    <option value="tech">Tech</option>
-                    <option value="economic">Economic</option>
-                    <option value="other">Other</option>
+                    <option value="News">News</option>
+                    <option value="Business">Business</option>
+                    <option value="Sociology">Sociology</option>
+                    <option value="Tech">Tech</option>
+                    <option value="Economic">Economic</option>
+                    <option value="Other">Other</option>
                 </select>
                 <br />Image
                 <br /><input type="file" onChange={uploadImg}/>

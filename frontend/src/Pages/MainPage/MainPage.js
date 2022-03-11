@@ -14,6 +14,7 @@ import {
     setSociologyBlog,
     setTechBlog,
     setEconomicBlog,
+    setOtherBlog,
 } from '../../redux/action/Action'
 import PerLoader from '../../Components/PerLoader/PerLoader';
 
@@ -73,15 +74,17 @@ const MainPage = () => {
             topSubData(response)
             const data = response.data.data;
             // calling newsblog
-            filterBlog(data,"news",setNewsBlog);
+            filterBlog(data,"News",setNewsBlog);
             // calling businessBlog
-            filterBlog(data,"business",setBusinessBlog);
+            filterBlog(data,"Business",setBusinessBlog);
             // calling sociologyBlog
-            filterBlog(data,"sociology",setSociologyBlog);
+            filterBlog(data,"Sociology",setSociologyBlog);
             // calling techBlog
-            filterBlog(data,"tech",setTechBlog);
+            filterBlog(data,"Tech",setTechBlog);
             // calling techBlog
-            filterBlog(data,"economic",setEconomicBlog);
+            filterBlog(data,"Economic",setEconomicBlog);
+            //calling otherBlog
+            filterBlog(data,"Other",setOtherBlog);
         } catch (error) {
             console.log(`Something Went Wrong : ${error}`);
         }
@@ -114,7 +117,10 @@ const MainPage = () => {
    const BusinessBlogs = useSelector((state) => state.BusinessBlogs.businessBlog);
    const SociologyBlogs = useSelector((state) => state.SociologyBlogs.sociologyBlog);
    const TechBlogs = useSelector((state) => state.TechBlogs.techBlog);
-   const EconomicBlogs = useSelector((state) => state.EconomicBlogs.economicBlog)
+   const EconomicBlogs = useSelector((state) => state.EconomicBlogs.economicBlog);
+   const OtherBlogs = useSelector((state) => state);
+
+   console.log(OtherBlogs);
 
   return (
     <div className="mainPage-container">
@@ -134,6 +140,7 @@ const MainPage = () => {
         <MainPage__contentSection sectionName="Sociology" data={SociologyBlogs} />
         <MainPage__contentSection sectionName="Tech" data={TechBlogs} />
         <MainPage__contentSection sectionName="Economic" data={EconomicBlogs} />
+        <MainPage__contentSection sectionName="Others" data={EconomicBlogs} />
     </div>
   )
 }

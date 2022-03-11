@@ -85,17 +85,17 @@ const Home = () => {
             topSubData(response)
             const data = response.data.data;
             // calling newsblog
-            filterBlog(data,"news",setNewsBlog);
+            filterBlog(data,"News",setNewsBlog);
             // calling businessBlog
-            filterBlog(data,"business",setBusinessBlog);
+            filterBlog(data,"Business",setBusinessBlog);
             // calling sociologyBlog
-            filterBlog(data,"sociology",setSociologyBlog);
+            filterBlog(data,"Sociology",setSociologyBlog);
             // calling techBlog
-            filterBlog(data,"tech",setTechBlog);
+            filterBlog(data,"Tech",setTechBlog);
             // calling techBlog
-            filterBlog(data,"economic",setEconomicBlog);
+            filterBlog(data,"Economic",setEconomicBlog);
             // calling othersBlog
-            filterBlog(data,"other",setOtherBlog);
+            filterBlog(data,"Other",setOtherBlog);
         } catch (error) {
             console.log(`Something Went Wrong : ${error}`);
         }

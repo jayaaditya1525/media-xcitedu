@@ -16,20 +16,22 @@ const MainPage__contentSection = ({sectionName,data}) => {
                 data.map((e,i) => {
                     if(i < 4){
                         return(
-                            <Link to={`/blog/${e._id}`}>
-                                <div className="newsBlock">
-                                    <div className="media__img">
-                                        <img src={e.image} alt={e._id} />
-                                    </div>
-                                    <div className="media__content center-row-left">
-                                        <div>
-                                            <span className='media__content-title'>{e.title}</span>
-                                            <p className='media__content-summary'>​​{e.description}</p>
-                                            <Link to={`/${e.type}`}><span className="media__content-tag">{e.type}</span></Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Link>
+                            <>
+                             <Link to={`/blog/${e._id}`}>
+                                 <div className="newsBlock">
+                                     <div className="media__img">
+                                         <img src={e.image} alt={e._id} />
+                                     </div>
+                                     <div className="media__content center-row-left">
+                                         <div>
+                                             <span className='media__content-title'>{e.title}</span>
+                                             <p className='media__content-summary'>​​{e.description}</p>
+                                             <Link to={`/${e.type}`}><span className="media__content-tag">{e.type}</span></Link>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </Link>
+                            </>
                         )
                     }
                 })
