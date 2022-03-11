@@ -112,7 +112,7 @@ const SignUpAsUser = () => {
                         </div>
 
                         <div className="profile">
-                            <span>Enter Your Avatar*</span>
+                            <span>Enter Your Avatar</span>
                             <input type="file"  accept='application/image' onChange={uploadImg}/>
                         </div>
 

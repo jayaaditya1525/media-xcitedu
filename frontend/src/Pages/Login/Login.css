@@ -1,159 +1,137 @@
-/* *{
-    background-color: rgb(51, 65, 85);
-} */
-
-.login--container{
-    background-color: #fff;
-    width: 270px;
-    border: 1px solid black;
-    margin: 100px auto 0;
-    padding: 10px 30px 40px;
-    border-radius: 10px;
-}
-
-.login--container a{
-    background-color: #fff;
-}
-
-.login form{
-    background-color: #fff;
-}
-
-.login--text{
-    font-size: 30px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    margin-top: 5px;
-    background-color: transparent;
-}
-
-.login--inputBox{
-    margin-bottom: 20px;
+.login_section {
     position: relative;
-}
-
-.login--inputBox div{
+    width: 100%;
+    height: 100vh;
     display: flex;
-    border: 1px solid black;
-    border-radius: 0px;
+  }
+  .login_section .imgbx {
+    position: relative;
+    width: 50%;
+    height: 100%;
+  }
+  .login_section .imgbx:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-}
-
-.login--inputBox div span{
-    background-color: #fff;
-}
-
-.login--inputBox div input{
+    height: 100%;
+    /* background: linear-gradient(225deg, #a1969a, #0f0c0f); */
+    z-index: +1;
+    mix-blend-mode: screen;
+  }
+  .login_section .imgbx img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .login_section .contentBx {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .login_section .contentBx .formBx {
+    width: 50%;
+  }
+  .login_section .contentBx .formBx h2 {
+    color: #000000;
+  
+    width: 125px;
+    font-weight: 600;
+    font-size: 1.5em;
+  
+    margin-bottom: 20px;
+    border-left: 8px solid var(--crimson);
+    display: inline-block;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  
+  .login_section .contentBx .formBx .inputbx {
+    margin-bottom: 20px;
+  }
+  
+  .login_section .contentBx .formBx .inputbx span {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #000000;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+  .login_section .contentBx .formBx .inputbx input,
+  button {
+    width: 100%;
+    padding: 10px 20px;
+    outline: none;
+    font-weight: 400;
+    border: 1px solid var(--crimson);
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #000000;
+    background: transparent;
+    border-radius: 5px;
+  }
+  .login_section .contentBx .formBx .inputbx button {
+    width: 40%;
+    background: var(--crimson);
+    color: #fff;
     outline: none;
     border: none;
-    font-size: 16px;
-    padding: 0 5px;
-    border-left: 1px solid gray;
-    background-color: #fff;
-}
-
-.login--inputBox div input:focus ~ label{
-    position: absolute;
-    display: block;
-    top: -12px;
-    left: 5px;
-    background-color: white;
-    color: #000;
-    padding: 2px 5px;
-    z-index: 1;
-}
-
-.login--inputBox label{
-    position: absolute;
-    left: 47px;
-    top: 9px;
-    z-index: -1;
-    transition: 0.5s;
-    font-size: 13px;
-    color: transparent;
     font-weight: 500;
-    background-color: #fff;
-}
-
-.login form > a{
-    text-decoration: none;
-    margin-bottom: 30px;
-    font-weight: 500;
-    border-bottom: 1px solid rgb(78, 76, 76);
-    padding: 2px 0;
-    color: rgb(78, 76, 76);
-}
-
-ion-icon{
-    background-color: #fff;
-    padding: 8px 10px;
-    font-size: 20px;
-}
-
-.login--btn{
-    padding: 9px 25px;
-    background-color: rgb(51, 65, 85);;
-    border: none;
-    border-radius: 4px;
+    border-radius: 20px;
+    margin-top: 15px;
+  }
+  .login_section .contentBx .formBx .inputbx button:hover {
+    background: #af1414;
+  }
+  .login_section .contentBx .formBx .remember {
+    margin-bottom: 10px;
+    color: #000000;
+    font-weight: 400;
     font-size: 14px;
-    font-weight: 500;
-    color: #fff;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    cursor: pointer;
-}
-
-.login form > span{
-    font-size: 14px;
-    font-weight: 500;
-    display: block;
-    text-align: center;
-    background-color: #fff;
-}
-
-.login form > span a{
-    background-color: #fff;
-    text-decoration: none;
-    color: rgba(196, 13, 13, 0.959);
-    font-size: 16px;
-    padding-left: 5px;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-
-@media screen and (max-width : 480px) {
-    .login--container{
-        width: 250px;
+  }
+  
+  .login_section .contentBx .formBx .inputbx p {
+    color: #000000;
+  }
+  
+  .login_section .contentBx .formBx .inputbx p a {
+    color: var(--crimson);
+  }
+  @media (max-width: 758px) {
+    .login_section .imgbx {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
-
-    .login--text{
-        font-size: 24px;
+    .login_section .contentBx {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
     }
-
-    .login form > span{
-        font-size: 13px;
+    .login_section .contentBx .formBx {
+      width: 100%;
+      padding: 40px;
+      background: rgb(255 255 255/0.9);
+      margin: 50px;
     }
-
-    .login form > span a{
-        font-size: 14px;
+    .login_section .contentBx .formBx h3 {
+      color: #607db8;
+      text-align: center;
+      margin: 30px 0 10px;
+      font-weight: 500;
     }
-}
-
-
-@media screen and (max-width : 320px) {
-    .login--container{
-        width: 220px;
-        padding: 10px 20px 40px;
-    }
-
-    .login--text{
-        font-size: 20px;
-    }
-
-    ion-icon{
-        padding: 8px 10px;
-        font-size: 18px;
-    }    
-}
+  }
