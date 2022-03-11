@@ -20,8 +20,8 @@ const PreNavbar = ({ moreBarController, background }) => {
         <>
           {/* <p>Welcome {userInfo.data.name}</p>
           <button onClick={handleLogout}>Logout</button> */}
-          <Link to={"/createblog"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Create Blog</span></span></Link>
-          <Link to={"/home"}><span className='user-aacount-container center-row preNavbar-navLink'><ion-icon name="person-circle-outline"></ion-icon><span className='navLink'>Your</span></span></Link>
+          {/* <Link to={"/createblog"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Create Blog</span></span></Link> */}
+          <Link to={"/profile"}><span className='user-account-container center-row preNavbar-navLink'><ion-icon name="person-circle-outline"></ion-icon><span className='navLink'>Your Account</span></span></Link>
           <Link to={"/home"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Home</span></span></Link>
           <Link to={"/News"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>News</span></span></Link>
           <Link to={"/Business"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Business</span></span></Link>

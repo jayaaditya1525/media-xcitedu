@@ -7,10 +7,12 @@ const MainPage__topHeadings = () => {
         const topMainData = useSelector((state) => state.MainBlog.mainBlog);
         const topSubData = useSelector((state) => state.SubBlogs.subBlog);
 
+        const userInfo = useSelector((state) => state.userLogin.userInfo);
+
     return (
         <div className="todaysHeading center-row">
             <div className="leftBx">
-                <Link to={`/blog/${topMainData._id}`}>
+                <Link to={!userInfo ? `/login` : `/blog/${topMainData._id}`}>
                 <div className="todaysHeading-mainHeading">
                     <div className="media__img">
                         <img src={topMainData.image} alt={topMainData.title} />
@@ -19,7 +21,7 @@ const MainPage__topHeadings = () => {
                         <div>
                             <span className='media__content-title'>{topMainData.title}</span>
                             <p className='media__content-summary'>{topMainData.description}</p>
-                            <Link to={`/${topMainData.type}`}><span className="media__content-tag">{topMainData.type}</span></Link>
+                            <Link to={!userInfo ? `/login` : `/${topMainData.type}`}><span className="media__content-tag">{topMainData.type}</span></Link>
                         </div>
                     </div>
                 </div>
@@ -30,7 +32,7 @@ const MainPage__topHeadings = () => {
                     topSubData.map((e,i) => {
                         return (
                             <>
-                            <Link to={`/blog/${e._id}`}>
+                            <Link to={!userInfo ? `/login` : `/blog/${e._id}`}>
                                 <div className="todaysHeading-subHeading">
                                     <div className="media__img">
                                         <img src={e.image} alt={e.title} />
@@ -38,7 +40,7 @@ const MainPage__topHeadings = () => {
                                     <div className="media__content center-row-left">
                                         <div>
                                             <span className='media__content-title'>{e.title}</span>
-                                            <Link to={`/${e.type}`}><span className="media__content-tag">{e.type}</span></Link>
+                                            <Link to={!userInfo ? `/login` : `/${e.type}`}><span className="media__content-tag">{e.type}</span></Link>
                                         </div>
                                     </div>
                                      </div>

@@ -1,5 +1,5 @@
 .preNavbar-container{
-    padding: 10px 80px;
+    padding: 10px 50px;
     background: var(--lighter-grey);    
     z-index: 200;
 }
@@ -19,6 +19,8 @@
     height: 25px;
     padding: 0 20px;
 }
+
+
 
 .user-account-container{
     padding-right: 50px;

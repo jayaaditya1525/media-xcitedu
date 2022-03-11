@@ -17,6 +17,7 @@ import {
     setOtherBlog,
 } from '../../redux/action/Action'
 import PerLoader from '../../Components/PerLoader/PerLoader';
+import { useNavigate } from 'react-router-dom';
 
 const MainPage = () => {
     const [loaderHide,setLoaderHide] = useState(false);
@@ -95,6 +96,9 @@ const MainPage = () => {
         setLoaderHide(false)
         fetchAllBlogs();
     }, [])
+
+    
+
 
     // Get Current Date &
     let todayDay;
