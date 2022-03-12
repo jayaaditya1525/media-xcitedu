@@ -98,7 +98,7 @@
 }
 
 .singleBlog-container__contentContainer-contentBx .media-description{
-    font-size: 2em;
+    font-size: 1.2em;
     font-weight: 400;
     max-width: 95%;
     color: var(--black);
@@ -107,6 +107,7 @@
 
 .singleBlog-container__contentContainer-contentBx .media-body{
     font-weight: 300;
+    font-size: 0.9em;
     color: var(--light-black);
 }
 

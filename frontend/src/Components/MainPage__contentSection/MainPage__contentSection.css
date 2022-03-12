@@ -37,7 +37,7 @@
     padding: 20px 0;
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(1,400px);
+    grid-template-rows: repeat(1,500px);
     grid-gap: 20px;
 }
 
@@ -77,14 +77,14 @@
 
 .MainPage__contentSection-container__newsContainer .newsBlock .media__content div .media__content-title{
     color: var(--black) !important;
-    font-size: 1.4em !important;
+    font-size: 1.2em !important;
     margin-bottom:10px !important ;
 }
 
 .MainPage__contentSection-container__newsContainer .newsBlock .media__content div .media__content-summary{
     color: var(--darker-gery);
     font-weight: 300;
-    font-size: 0.9em;
+    font-size: 0.8em;
 }
 
 .MainPage__contentSection-container__newsContainer .newsBlock .media__content div .media__content-tag{

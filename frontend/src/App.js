@@ -15,6 +15,7 @@ import Login from './Pages/Login/Login';
 import CreateBlog from './Pages/CreateBlog/CreateBlog';
 import UserProfile from './Pages/UserProfile/UserProfile';
 import { useSelector } from 'react-redux';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   const user = useSelector((state) => state.userLogin);
@@ -23,7 +24,6 @@ function App() {
     <>
       <div className="container">
         <Routes>
-          
           <Route exact path="/" element={!userInfo ? <MainPage/> : <Home />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
@@ -39,6 +39,7 @@ function App() {
           <Route exact path="/profile" element={<UserProfile />} />
           <Route exact path="/*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </div>
     </>
   );

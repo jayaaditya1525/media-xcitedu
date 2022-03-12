@@ -21,7 +21,7 @@ const MainPage__topHeadings = () => {
                         <div>
                             <span className='media__content-title'>{topMainData.title}</span>
                             <p className='media__content-summary'>{topMainData.description}</p>
-                            <Link to={!userInfo ? `/login` : `/${topMainData.type}`}><span className="media__content-tag">{topMainData.type}</span></Link>
+                            <Link to={!userInfo ? `/login` : `/${topMainData.tags[0]}`}><span className="media__content-tag">{topMainData.tags[0]}</span></Link>
                         </div>
                     </div>
                 </div>
@@ -40,7 +40,7 @@ const MainPage__topHeadings = () => {
                                     <div className="media__content center-row-left">
                                         <div>
                                             <span className='media__content-title'>{e.title}</span>
-                                            <Link to={!userInfo ? `/login` : `/${e.type}`}><span className="media__content-tag">{e.type}</span></Link>
+                                            <Link to={!userInfo ? `/login` : `/${e.tags[0]}`}><span className="media__content-tag">{e.tags[0]}</span></Link>
                                         </div>
                                     </div>
                                      </div>

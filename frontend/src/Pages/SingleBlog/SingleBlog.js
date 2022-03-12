@@ -81,7 +81,8 @@ const SingleBlog = () => {
     const blog = useSelector((state) => state.SingleBlog.singleBlog);
     //get latest blog
     const latestBlog = useSelector((state) => state.LatestBlog.latestBlog);
-     
+
+    console.log(blog);
 
     //like handler 
     const likeHandler = async() => {

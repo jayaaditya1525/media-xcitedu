@@ -28,7 +28,7 @@ const MainPage__contentSection = ({sectionName,data}) => {
                                          <div>
                                              <span className='media__content-title'>{e.title}</span>
                                              <p className='media__content-summary'>​​{e.description}</p>
-                                             <Link to={!userInfo ? `/login` : `/${e.tags[0]}`}><span className="media__content-tag">{e.type}</span></Link>
+                                             <Link to={!userInfo ? `/login` : `/${e.tags[0]}`}><span className="media__content-tag">{e.tags[0]}</span></Link>
                                          </div>
                                      </div>
                                  </div>
