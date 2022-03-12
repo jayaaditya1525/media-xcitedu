@@ -158,7 +158,7 @@ const SingleBlog = () => {
                           <div className="extra-section">
                               <div>
                                 <span onClick={likeHandler}>{likeBlog === true ? <ion-icon name="heart" style={{color : "red"}}></ion-icon> : <ion-icon name="heart-outline"></ion-icon>} {}</span>
-                                <span><ion-icon name="share-social-outline"></ion-icon></span>
+                                <span><ion-icon name="bookmark-outline"></ion-icon></span>
                               </div>
                               <div>
                                   <a><ion-icon name="logo-facebook"></ion-icon></a>
