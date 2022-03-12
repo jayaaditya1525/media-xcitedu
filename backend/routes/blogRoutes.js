@@ -24,7 +24,7 @@ const router = express.Router();
 
 // Create new Blogs - Only for Users
 // router.route("/createBlog").post(createBlog);
-router.route("/createBlog").post(createBlog);
+router.route("/createBlog").post(protect, createBlog);
 
 
 // Get all Blogss

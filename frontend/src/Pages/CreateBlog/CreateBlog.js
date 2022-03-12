@@ -67,7 +67,7 @@ const CreateBlog = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault();
-
+        const token = localStorage.getItem('token')
         if(allTags.length === 0){
             setAllTags([...allTags,"News"])
         }else{
@@ -89,6 +89,7 @@ const CreateBlog = () => {
             url : "http://localhost:8080/blog/createBlog",
             headers : {
                 "Content-Type" : "application/json",
+                "Authorization" : `Bearer ${token}`
             },
             data : postBlog
         }).then((res) => {

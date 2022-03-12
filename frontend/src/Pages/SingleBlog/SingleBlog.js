@@ -12,9 +12,12 @@ const SingleBlog = () => {
     const [likeBlog,setLikeBlog] = useState(false);
     //loder
     const [loaderHide,setLoaderHide] = useState(false);
+    // Hide & Show Share Option
+    const[showShare,setShowShare] = useState(false);
+    // set User
     const [user,setUser] = useState("");
     // comment 
-    const [comment, setComment] = useState("");
+    // const [comment, setComment] = useState("");
     const dispatch = useDispatch();
     const {id} = useParams();
     const userInfo = useSelector((state) => state.userLogin.userInfo);
@@ -148,10 +151,6 @@ const SingleBlog = () => {
     }
 
     const totalLike = blog.likes;
-
-    
-    
-    
   return (
     <>
         <PerLoader hide={loaderHide}/>
@@ -188,15 +187,15 @@ const SingleBlog = () => {
                               </div>
                               <div>
                                   <a><ion-icon name="logo-facebook"></ion-icon></a>
-                                    <a><ion-icon name="logo-instagram"></ion-icon></a>
-                                  <a><ion-icon name="ellipsis-vertical"></ion-icon></a>
+                                  <a><ion-icon name="logo-instagram"></ion-icon></a>
+                                  <a><ion-icon name="ellipsis-vertical" onClick={() => {setShowShare(!showShare)}}></ion-icon> <span className='center-row' id={showShare == true ? "show" : "hide"}><div className='center-row'>Share</div></span></a>
                               </div>
                           </div>
                           <span className="media-total-like">
                                 Total Like {totalLike !== undefined ? totalLike.length : "0"}
                           </span>
                           <div className="hr"></div>
-                          <form>
+                          {/* <form>
                               <div className='addCommentBox'>
                                   <textarea placeholder='Add Your Comment...' name='comment' onChange={(e) => {setComment(e.target.value)}} value={comment}></textarea>
                                   <div>
@@ -204,12 +203,12 @@ const SingleBlog = () => {
                                   </div>
                               </div>
                           </form>
-                          <div className="hr"></div>
+                          <div className="hr"></div> */}
                       </div>
                   </div>
               <div className="singleBlog-container__contentContainer-relatedNews">
                     <span className="bxTitle">
-                        Related News
+                        Latest News
                     </span>
                     <div className="relatedNews_container">
                         {
