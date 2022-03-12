@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './AllBlogs.css'
 const AllBlogs = ({blogset}) => {
-
     const [show, setShow] = useState(12);
+    
   return (
     <>
       <div className="allBogsContainer">

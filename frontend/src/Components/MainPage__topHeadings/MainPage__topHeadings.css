@@ -18,6 +18,10 @@
     cursor: pointer;
 }
 
+.todaysHeading-mainHeading .media__content-title{
+    line-height: 35px !important;
+}
+
 .todaysHeading .rightBx{
     display: grid;
     grid-template-columns: repeat(2,1fr);
