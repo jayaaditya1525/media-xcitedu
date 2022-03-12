@@ -35,7 +35,9 @@ const CreateBlog = () => {
             setAllTags([...allTags,edited]);
             console.log(`edited  : ${edited}`);
         }else{
-        setAllTags([...allTags,getTags]);
+            if(getTags){
+                setAllTags([...allTags,getTags]);
+            }
         }
         setGetTags(" ");
     }

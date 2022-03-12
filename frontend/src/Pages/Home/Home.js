@@ -40,7 +40,7 @@ const Home = () => {
     }
 
     // send newsBlog 
-    const filterBlog = (response,type,dispatchName) => {
+    const filterBlog = (response,searchType,dispatchName) => {
         let allBlogLenth = response.length;
         const data = [];
         for (let i = 0; i < allBlogLenth ; i++) {
@@ -48,7 +48,10 @@ const Home = () => {
         }
         const filterData = [];
         data.map((e) => {
-            if(e.type === type){
+            let {type} = e;
+            type = type.toLowerCase();
+            let searchTy = searchType.toLowerCase();
+            if(type === searchTy){
                 filterData.push(e)
             }
         })
