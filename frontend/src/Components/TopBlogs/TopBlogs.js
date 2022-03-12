@@ -18,7 +18,7 @@ const TopBlogs = ({blogset}) => {
                                         <div>
                                             <span className='media__content-title'>{e.title}</span>
                                             {/* <Link to={`/${e.type}`}><span className="media__content-tag">{e.tags[0]}</span></Link> */}
-                                            <Link to={`/${e.type}`}><span className="media__content-tag">News</span></Link>
+                                            <Link to={`/${e.type}`}><span className="media__content-tag">{e.type}</span></Link>
                                         </div>
                                     </div>
                                     <div className="imgBx">
@@ -45,7 +45,7 @@ const TopBlogs = ({blogset}) => {
                                             <span className='media__content-title'>{e.title}</span>
                                             <p className='media__content-summary'>​​{e.description}</p>
                                             {/* <Link to={`/${e.type}`}><span className="media__content-tag">{e.tags[0]}</span></Link> */}
-                                            <Link to={`/${e.type}`}><span className="media__content-tag">News</span></Link>
+                                            <Link to={`/${e.type}`}><span className="media__content-tag">{e.type}</span></Link>
                                         </div>
                                     </div>
                             <div className="imgBx">
@@ -71,7 +71,7 @@ const TopBlogs = ({blogset}) => {
                                     <div>
                                         <span className='media__content-title'>{e.title}</span>
                                         {/* <Link to={`/${e.type}`}><span className="media__content-tag">{e.tags[0]}</span></Link> */}
-                                        <Link to={`/${e.type}`}><span className="media__content-tag">News</span></Link>
+                                        <Link to={`/${e.type}`}><span className="media__content-tag">{e.type}</span></Link>
                                     </div>
                                 </div>
                                 <div className="imgBx">

@@ -41,8 +41,8 @@ const MainPage = () => {
         dispatch(setTopSubBlog(data))
     }
 
-    // send newsBlog 
-    const filterBlog = (response,type,dispatchName) => {
+      // send newsBlog 
+      const filterBlog = (response,searchType,dispatchName) => {
         let allBlogLenth = response.length;
         const data = [];
         for (let i = 0; i < allBlogLenth ; i++) {
@@ -50,7 +50,10 @@ const MainPage = () => {
         }
         const filterData = [];
         data.map((e) => {
-            if(e.type === type){
+            let {type} = e;
+            type = type.toLowerCase();
+            let searchTy = searchType.toLowerCase();
+            if(type === searchTy){
                 filterData.push(e)
             }
         })
@@ -65,7 +68,7 @@ const MainPage = () => {
     // Storing Data in Store
     const fetchAllBlogs = async () => {
         try {
-            const response = await axios("https://mediabackend-xcitedu.herokuapp.com/blog/allBlogs");
+            const response = await axios("http://localhost:8080/blog/allBlogs");
             setLoaderHide(true)
             // console.log(response.data.data);
             dispatch(setAllBlogs(response.data.data))

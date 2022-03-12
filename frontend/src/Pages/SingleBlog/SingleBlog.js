@@ -150,6 +150,7 @@ const SingleBlog = () => {
         }
     }
 
+    console.log(blog);
     const totalLike = blog.likes;
   return (
     <>

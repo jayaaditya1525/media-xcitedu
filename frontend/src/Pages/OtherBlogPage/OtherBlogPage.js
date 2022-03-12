@@ -22,6 +22,7 @@ const OtherBlogPage = () => {
 
     const getAllData = async() => {
       await axios.get("http://localhost:8080/blog/allOtherBlogs").then((res) => {
+        console.log(res.data);
         makeLatest(res.data)
         setLoaderHide(true)
       }).catch((error) => {
@@ -33,12 +34,12 @@ const OtherBlogPage = () => {
       getAllData();
     },[])
 
-    const setOtherBlog = useSelector((state) => state.OtherBlogs.allOtherBlog);
-
+    const setOtherBlog = useSelector((state) => state.OtherBlogs.otherBlog);
+    console.log(setOtherBlog);
   return (
     <>
         <PerLoader hide={loaderHide}/>
-        <Navbar pageName={"Others"} />
+        <Navbar pageName={"Other"} />
         <TopBlogs blogset={setOtherBlog} />
         <AllBlogs blogset={setOtherBlog} />
     </>

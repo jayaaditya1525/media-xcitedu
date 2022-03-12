@@ -133,7 +133,7 @@ const getAllSociologyBlogs = asyncHandler(async (req, res) => {
 
 // Get details of all Fullstack Blogs
 const getAllNewsBlogs = asyncHandler(async (req, res) => {
-    const Blogs = await Blog.find({ type: "News" });
+    const Blogs = await Blog.find({ type: "news" });
     if (Blogs.length > 0) {
         res.status(200).json(Blogs);
     } else {
