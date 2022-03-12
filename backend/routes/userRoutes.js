@@ -4,7 +4,8 @@ const {
     registerUser,
     userLogin,
     getUserDetails,
-    updateUserDetails
+    updateUserDetails,
+    findSingleUser
 } = require("../controllers/userControllers");
 
 const { protect } = require("../middlewares/protectedRoutes");
@@ -22,5 +23,7 @@ router.route("/userDetails").get(protect, getUserDetails);
 
 // User updates his/her own details - Only logged in user
 router.route("/userUpdate").put(protect, updateUserDetails);
+// find single user
+router.route("/findSingleUser").post(protect ,findSingleUser)
 
 module.exports = router;

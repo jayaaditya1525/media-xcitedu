@@ -10,23 +10,52 @@ import './SingleBlog.css'
 const SingleBlog = () => {
     // like handler
     const [likeBlog,setLikeBlog] = useState(false);
-
     //loder
     const [loaderHide,setLoaderHide] = useState(false);
+    const [user,setUser] = useState("");
     // comment 
     const [comment, setComment] = useState("");
     const dispatch = useDispatch();
     const {id} = useParams();
     const userInfo = useSelector((state) => state.userLogin.userInfo);
     const userId  = userInfo.data._id;
-    console.log(`user Id ${userId}`);
     const checkBlogLike = useSelector((state) => state.isBlogLiked.isLiked);
+
+    //get blog
+    const blog = useSelector((state) => state.SingleBlog.singleBlog);
+    //get latest blog
+    const latestBlog = useSelector((state) => state.LatestBlog.latestBlog);
+
+    // console.log(blog);
+
+    const findSingleUser = async(id)  => {
+        const token = localStorage.getItem('token');
+        const body = JSON.stringify({
+            "userId" : id
+        })
+        await axios({
+            method : "POST",
+            url : "http://localhost:8080/user/findSingleUser",
+            headers : {
+                "Content-Type" : "application/json",
+                "Authorization" : `Bearer ${token}`
+            },
+            data : body
+        }).then((res) => {
+            console.log(res);
+            setUser(res.data.user.name);
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+
     
     // filter single blog
     const filterSingleBlog = (response) => {
         response.map((e,i) => {
             if(e._id === id){
                 dispatch(setSingleBlog(e));
+                findSingleUser(e.userId);
                 const data = e.likes;
                 
                 data.map((b) => {
@@ -42,6 +71,7 @@ const SingleBlog = () => {
         })
     }
 
+    
     // filter latest blog
     const filterLastestBlog = (response) => {
         let arr = []
@@ -53,6 +83,8 @@ const SingleBlog = () => {
         // filtering data
         dispatch(setLatestBlog(arr));
     }
+
+       
 
     // 
     const getData = async () =>{
@@ -73,16 +105,10 @@ const SingleBlog = () => {
 
     // 
     useEffect(() => {
-        setLoaderHide(false)
+        setLoaderHide(false);
         getData();
     },[])
-
-    //get blog
-    const blog = useSelector((state) => state.SingleBlog.singleBlog);
-    //get latest blog
-    const latestBlog = useSelector((state) => state.LatestBlog.latestBlog);
-
-    console.log(blog);
+    
 
     //like handler 
     const likeHandler = async() => {
@@ -142,7 +168,7 @@ const SingleBlog = () => {
                                 {blog.title}
                             </h1>
                             <span className='mediaBlog-Creator'>
-                            By John Simpson
+                            By {user}
                             </span>
                             <span className='mediaBlog-createdAt'>
                             <ion-icon name="time-outline"></ion-icon> 13 hours ago

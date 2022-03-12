@@ -1,9 +1,8 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './TopBlogs.css'
 const TopBlogs = ({blogset}) => {
-    const userInfo = useSelector((state) => state.userLogin.userInfo);
+    
   return (
     <>
     <div className="topBlogs__container center-row">
@@ -14,11 +13,12 @@ const TopBlogs = ({blogset}) => {
                         return (
                             <>
                                 <div className="topBlogs__container-leftBx__bx">
-                                <Link to={!userInfo ? `/login` : `/blog/${e._id}`}>
+                                <Link to={`/blog/${e._id}`}>
                                     <div className="contentBx center-row-left">
                                         <div>
                                             <span className='media__content-title'>{e.title}</span>
-                                            <Link to={!userInfo ? `/login` : `/${e.tags[0]}`}><span className="media__content-tag">{e.tags[0]}</span></Link>
+                                            {/* <Link to={`/${e.type}`}><span className="media__content-tag">{e.tags[0]}</span></Link> */}
+                                            <Link to={`/${e.type}`}><span className="media__content-tag">News</span></Link>
                                         </div>
                                     </div>
                                     <div className="imgBx">
@@ -39,12 +39,13 @@ const TopBlogs = ({blogset}) => {
                         return (
                         <>
                             <div className="topBlogs__container-middleBx-bx">
-                            <Link to={!userInfo ? `/login` : `/blog/${e._id}`}>
+                            <Link to={`/blog/${e._id}`}>
                             <div className="contentBx center-row-left">
                                         <div>
                                             <span className='media__content-title'>{e.title}</span>
                                             <p className='media__content-summary'>​​{e.description}</p>
-                                            <Link to={!userInfo ? `/login` : `/${e.tags[0]}`}><span className="media__content-tag">{e.tags[0]}</span></Link>
+                                            {/* <Link to={`/${e.type}`}><span className="media__content-tag">{e.tags[0]}</span></Link> */}
+                                            <Link to={`/${e.type}`}><span className="media__content-tag">News</span></Link>
                                         </div>
                                     </div>
                             <div className="imgBx">
@@ -65,11 +66,12 @@ const TopBlogs = ({blogset}) => {
                         return (
                             <>
                                 <div className="topBlogs__container-rightBx-bx">
-                                    <Link to={!userInfo ? `/login` : `/blog/${e._id}`}>
+                                    <Link to={`/blog/${e._id}`}>
                                 <div className="contentBx center-row-left">
                                     <div>
                                         <span className='media__content-title'>{e.title}</span>
-                                        <Link to={!userInfo ? `/login` : `/${e.tags[0]}`}><span className="media__content-tag">{e.tags[0]}</span></Link>
+                                        {/* <Link to={`/${e.type}`}><span className="media__content-tag">{e.tags[0]}</span></Link> */}
+                                        <Link to={`/${e.type}`}><span className="media__content-tag">News</span></Link>
                                     </div>
                                 </div>
                                 <div className="imgBx">

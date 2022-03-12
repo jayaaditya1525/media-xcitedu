@@ -180,4 +180,22 @@ const updateUserDetails = asyncHandler(async (req, res) => {
     }
 });
 
-module.exports = { registerUser, userLogin, getUserDetails, updateUserDetails };
+// find single  user 
+const findSingleUser = asyncHandler((req,res,next) => {
+    const {userId} = req.body;
+    User.findById(userId).then((user) => {
+        res.status(200).json({
+            success : true,
+            message : "User Found",
+            user
+        })
+    }).catch((err) => {
+        res.status(400).json({
+            success : false,
+            message : "User Not Found",
+            error : `Error : ${err}`
+        })
+    })
+})
+
+module.exports = { registerUser, userLogin, getUserDetails, updateUserDetails,findSingleUser };
