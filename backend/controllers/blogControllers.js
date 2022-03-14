@@ -58,6 +58,28 @@ const likeBlog = asyncHandler(async (req,res) => {
 
 })
 
+// get all blog by user id
+const getBlogByJounId = asyncHandler((req,res,next) =>{
+    const {jounId} = req.body;
+
+    Blog.find({
+        userId : jounId
+    }).then((blog) => {
+        res.status(200).json({
+            success : true,
+            message : "Blog Found",
+            blog
+        })
+    }).catch((err) => {
+        res.status(400).json({
+            success : false,
+            message : "Blog Not Found",
+            Error : `Error : ${err}`
+        })
+    })
+
+});
+
 // like to blog
 const removeLikeBlog = asyncHandler(async (req,res) => {
     const {userId,blogId} = req.body;
@@ -244,5 +266,6 @@ module.exports = {
     getAllBlogsOfUser,
     getAllBlogsOfEmployer,
     likeBlog,
-    removeLikeBlog
+    removeLikeBlog,
+    getBlogByJounId
 };

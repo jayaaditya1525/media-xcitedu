@@ -11,7 +11,8 @@ import {
     singleBlogReducer,
     latestBlogReducer,
     OtherBlogsReducer,
-    checkLikedBlogReducer
+    checkLikedBlogReducer,
+    currentJounBlogReducer
 } from './Reducer'
 import {
     userLoginReducer,
@@ -32,7 +33,8 @@ const reducer = combineReducers({
     LatestBlog: latestBlogReducer,
     userLogin: userLoginReducer,
     userRegister: userRegisterReducer,
-    isBlogLiked : checkLikedBlogReducer
+    isBlogLiked : checkLikedBlogReducer,
+    GetCurrentJounBlogReducer : currentJounBlogReducer
 })
 
 export default reducer;

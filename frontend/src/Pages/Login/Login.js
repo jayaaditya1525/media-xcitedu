@@ -12,7 +12,6 @@ const Login = () => {
     });
     let name, value;
     const handleChange = (e) => {
-        console.log(user);
         name = e.target.name;
         value = e.target.value;
         setUser({ ...user, [name]: value });
@@ -23,17 +22,18 @@ const Login = () => {
 
     const userLogin = useSelector((state) => state.userLogin);
     const { userInfo } = userLogin;
-    const submitHandler = (e) => {
+
+    const submitHandler = async(e) => {
         e.preventDefault();
         dispatch(login(user.email, user.password));
-        console.log("Login dispatch");
     };
+
+
     useEffect(() => {
         if (userInfo) {
-
             navigate("/");
-            console.log("LoggedIn");
-            console.log(userInfo);
+            // console.log("LoggedIn");
+            // console.log(userInfo);
         }
     }, [userInfo, navigate]);
     return (

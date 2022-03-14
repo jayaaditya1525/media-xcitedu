@@ -235,7 +235,7 @@
 .singleBlog-container__contentContainer-relatedNews{
     position: relative;
     width: 25%;
-    height: 100vh;
+    height: 250vh;
     background: var(--white);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     padding: 60px 20px;

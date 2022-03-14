@@ -139,3 +139,13 @@ export const checkLikedBlogReducer = (state = {isLiked : false},{type,playload})
             return state
     }
 }
+
+export const currentJounBlogReducer = (state = {currentJunBlog : []},{type,playload}) =>{
+    switch(type){
+        case ActionType.SET_CURRENT_JOUN_BLOG : 
+            return {currentJunBlog : playload}
+
+        default:
+            return state
+    }
+}

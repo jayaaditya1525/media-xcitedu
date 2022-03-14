@@ -87,8 +87,6 @@ const MainPage = () => {
             filterBlog(data,"Tech",setTechBlog);
             // calling techBlog
             filterBlog(data,"Economic",setEconomicBlog);
-            //calling otherBlog
-            filterBlog(data,"Other",setOtherBlog);
         } catch (error) {
             console.log(`Something Went Wrong : ${error}`);
         }
@@ -126,8 +124,6 @@ const MainPage = () => {
    const TechBlogs = useSelector((state) => state.TechBlogs.techBlog);
    const EconomicBlogs = useSelector((state) => state.EconomicBlogs.economicBlog);
    const OtherBlogs = useSelector((state) => state);
-
-   console.log(OtherBlogs);
 
   return (
     <div className="mainPage-container">

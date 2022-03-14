@@ -29,7 +29,7 @@ const MainPage__topHeadings = () => {
             </div>
             <div className="rightBx">
                 {
-                    topSubData.map((e,i) => {
+                    React.Children.toArray(topSubData.map((e,i) => {
                         return (
                             <>
                             <Link to={!userInfo ? `/login` : `/blog/${e._id}`}>
@@ -47,7 +47,7 @@ const MainPage__topHeadings = () => {
                              </Link>
                             </> 
                         )
-                    })
+                    }))
                 }
             </div>
         </div>

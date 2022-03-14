@@ -143,7 +143,6 @@ const Home = () => {
         <MainPage__contentSection sectionName="Sociology" data={SociologyBlogs} />
         <MainPage__contentSection sectionName="Tech" data={TechBlogs} />
         <MainPage__contentSection sectionName="Economic" data={EconomicBlogs} />
-        <MainPage__contentSection sectionName="Others" data={OtherBlogs} />
     </div>
     </>
   )

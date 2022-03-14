@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './AllBlogs.css'
 const AllBlogs = ({blogset}) => {
     const [show, setShow] = useState(12);
-    
+
   return (
     <>
       <div className="allBogsContainer">
@@ -12,7 +12,7 @@ const AllBlogs = ({blogset}) => {
           </div>
           <div className="allBogsContainer_blogContainer">
             {
-                blogset.map((e,i) => {
+                React.Children.toArray(blogset.map((e,i) => {
                     if(i < show){
                         return(
                             <>
@@ -33,7 +33,7 @@ const AllBlogs = ({blogset}) => {
                             </>
                         )
                     }
-                })
+                }))
             }
           </div>
           <div className="loadMoreContainer center-row">

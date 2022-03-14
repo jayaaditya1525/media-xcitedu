@@ -13,7 +13,8 @@ const {
     getAllOtherBlogs,
     getAllBlogsOfUser,
     likeBlog,
-    removeLikeBlog
+    removeLikeBlog,
+    getBlogByJounId
 } = require("../controllers/blogControllers");
 
 const {
@@ -26,6 +27,8 @@ const router = express.Router();
 // router.route("/createBlog").post(createBlog);
 router.route("/createBlog").post(protect, createBlog);
 
+// Get Blog Of Current User
+router.route("/jounBlog").post(protect, getBlogByJounId);
 
 // Get all Blogss
 router.route("/allBlogs").get(getAllBlogs);
@@ -58,10 +61,10 @@ router.route("/oneBlog/:id").get(getBlogById);
 router.route("/allBlogs/:id").get(protect, getAllBlogsOfUser);
 
 // Like blog
-router.post("/likeBlog",likeBlog);
+router.put("/likeBlog",likeBlog);
 
 // removelike blog
-router.post("/removeLikeBlog",removeLikeBlog);
+router.put("/removeLikeBlog",removeLikeBlog);
 
 
 

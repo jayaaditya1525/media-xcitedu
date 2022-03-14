@@ -20,7 +20,7 @@ export const login = (email, password) => async (dispatch) => {
             { email, password },
             config
         );
-        console.log(data);
+        // console.log(data);
         dispatch({
             type: USER_LOGIN_SUCCESS,
             payload: data,
@@ -40,7 +40,6 @@ export const login = (email, password) => async (dispatch) => {
 
 export const logout = () => (dispatch) => {
     localStorage.removeItem("token");
-    // dispatch({ type: USER_DETAILS_RESET });
     dispatch({
         type: USER_LOGOUT,
     });

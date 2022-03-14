@@ -8,7 +8,7 @@ const TopBlogs = ({blogset}) => {
     <div className="topBlogs__container center-row">
         <div className="topBlogs__container-leftBx center-column">
             {
-                blogset.map((e,i) => {
+                React.Children.toArray(blogset.map((e,i) => {
                     if(i<2){
                         return (
                             <>
@@ -29,12 +29,12 @@ const TopBlogs = ({blogset}) => {
                             </>
                             )
                     }
-                })
+                }))
             }
         </div>
         <div className="topBlogs__container-middleBx">
         {
-                blogset.map((e,i) => {
+                React.Children.toArray(blogset.map((e,i) => {
                     if(i===2){
                         return (
                         <>
@@ -56,12 +56,12 @@ const TopBlogs = ({blogset}) => {
                         </>
                         )
                     }
-                })
+                }))
             }
         </div>
         <div className="topBlogs__container-rightBx center-column">
         {
-                blogset.map((e,i) => {
+                React.Children.toArray(blogset.map((e,i) => {
                     if(i>2 && i<5){
                         return (
                             <>
@@ -82,7 +82,7 @@ const TopBlogs = ({blogset}) => {
                             </>
                         )
                     }
-                })
+                }))
             }
         </div>
     </div>

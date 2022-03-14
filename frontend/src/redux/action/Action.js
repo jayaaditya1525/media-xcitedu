@@ -127,3 +127,10 @@ export const setIsLiked = (liked) => {
         playload : liked
     }
 }
+ 
+export const setCurrentJounBlog = (blogs) => {
+    return {
+        type :  ActionType.SET_CURRENT_JOUN_BLOG,
+        playload : blogs
+    }
+}

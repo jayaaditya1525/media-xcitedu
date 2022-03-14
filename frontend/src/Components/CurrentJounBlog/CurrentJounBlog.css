@@ -1,0 +1,32 @@
+.CurrentJounBlog__container{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.CurrentJounBlog__container .media-title{
+    display: block;
+    font-size: 1.6em;
+    margin-bottom: 10px;
+}
+
+.CurrentJounBlog__container .media-description{
+    display: block;
+    font-size: 1em !important;
+    font-weight: 300 !important;
+    color: var(--lighter-black);
+}
+
+.CurrentJounBlog__container .media-imgBx{
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.CurrentJounBlog__container .media-imgBx img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

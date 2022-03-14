@@ -11,15 +11,17 @@ const PreNavbar = ({ moreBarController, background }) => {
     dispatch(logout())
   }
   const userLogin = useSelector((state) => state.userLogin);
+  
   const { userInfo } = userLogin;
+
   
   return (
     <div className={!userInfo ? "preNavbar-container center-row-left-right" : "preNavbar-container center-row-left" } id={background}>
       <Link to={"/"}><span className='web-logo center-row' id={userInfo ? "logged" : "notLogged"}><img src="https://i.ibb.co/Cb51LQ2/logo-Xcite.jpg" className='web-logo__img' alt="web-logo" /> | <span className="web-logo__name">Media House.</span></span></Link>
       {userInfo ? (
         <>
-          {/* <p>Welcome {userInfo.data.name}</p>
-          <button onClick={handleLogout}>Logout</button> */}
+          {/* <p>Welcome {userInfo.data.name}</p> */}
+          {/* <button onClick={handleLogout}>Logout</button> */}
           <Link to={"/createblog"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Create Blog</span></span></Link>
           <Link to={"/profile"}><span className='user-account-container center-row preNavbar-navLink'><ion-icon name="person-circle-outline"></ion-icon><span className='navLink'>Your Account</span></span></Link>
           <Link to={"/home"}><span className='pages-navLink center-row preNavbar-navLink'><span className='navLink'>Home</span></span></Link>

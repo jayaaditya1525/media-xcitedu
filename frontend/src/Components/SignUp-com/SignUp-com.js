@@ -57,7 +57,7 @@ const SignUpAsUser = () => {
                     profilePicture
                 })
             }).then((res) => {
-                console.log(res);
+                // console.log(res);
                 navigate('/login')
                 
             }).catch((err) => {

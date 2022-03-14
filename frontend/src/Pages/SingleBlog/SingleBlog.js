@@ -2,9 +2,10 @@ import axios from 'axios';
 import React, { useEffect,useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom'
+import CurrentJounBlog from '../../Components/CurrentJounBlog/CurrentJounBlog';
 import Navbar from '../../Components/Navbar/Navbar'
 import PerLoader from '../../Components/PerLoader/PerLoader';
-import { setAllBlogs, setIsLiked, setLatestBlog, setSingleBlog } from '../../redux/action/Action';
+import { setAllBlogs, setIsLiked, setLatestBlog, setSingleBlog , setCurrentJounBlog } from '../../redux/action/Action';
 import './SingleBlog.css'
 
 const SingleBlog = () => {
@@ -21,18 +22,17 @@ const SingleBlog = () => {
     const dispatch = useDispatch();
     const {id} = useParams();
     const userInfo = useSelector((state) => state.userLogin.userInfo);
-    const userId  = userInfo.data._id;
+    const userId  = userInfo?.data?._id;
     const checkBlogLike = useSelector((state) => state.isBlogLiked.isLiked);
 
     //get blog
     const blog = useSelector((state) => state.SingleBlog.singleBlog);
     //get latest blog
     const latestBlog = useSelector((state) => state.LatestBlog.latestBlog);
-
+    
     // console.log(blog);
-
     const findSingleUser = async(id)  => {
-        const token = localStorage.getItem('token');
+        const token = localStorage?.getItem('token');
         const body = JSON.stringify({
             "userId" : id
         })
@@ -45,13 +45,47 @@ const SingleBlog = () => {
             },
             data : body
         }).then((res) => {
-            console.log(res);
-            setUser(res.data.user.name);
+            setUser(res?.data?.user?.name);
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+    
+    // find current Joun Blog
+    const currentJounBlog = async(JounId,blogId) => {
+        const token = localStorage.getItem('token');
+        const body = JSON.stringify({
+            "jounId" : JounId
+        })
+        await axios({
+            method : "POST",
+            url : "http://localhost:8080/blog/jounBlog",
+            headers : {
+                "Content-Type" : "application/json",
+                "Authorization" : `Bearer ${token}`
+            },
+            data : body
+        }).then((res) => {
+            let data = res.data.blog
+            let arr = [];
+
+            for (let i = 0; i < data.length; i++) {
+                if(data[data.length - (i + 1)]._id !== blog){
+                    arr.push(data[data.length - (i + 1)])
+                }
+            }
+
+            dispatch(setCurrentJounBlog(arr))
+
+
         }).catch((err) => {
             console.log(err);
         })
     }
 
+
+    //get blog
+    const jounCunBlog = useSelector((state) => state.GetCurrentJounBlogReducer.currentJunBlog);
     
     // filter single blog
     const filterSingleBlog = (response) => {
@@ -59,6 +93,7 @@ const SingleBlog = () => {
             if(e._id === id){
                 dispatch(setSingleBlog(e));
                 findSingleUser(e.userId);
+                currentJounBlog(e.userId,e._id)
                 const data = e.likes;
                 
                 data.map((b) => {
@@ -121,12 +156,15 @@ const SingleBlog = () => {
             "blogId" : id
         })
 
+        const token = localStorage.getItem('token');
+
         if(likeBlog === false){
             await axios({
-                method : "POST",
+                method : "PUT",
                 url : "http://localhost:8080/blog/likeBlog",
                 headers : {
                     "Content-Type" : "application/json",
+                    "Authorization" : `Bearer ${token}`
                 },
                 data : body,
             }).then((res) => {
@@ -136,10 +174,11 @@ const SingleBlog = () => {
             })
         }else{
             await axios({
-                method : "POST",
+                method : "PUT",
                 url : "http://localhost:8080/blog/removeLikeBlog",
                 headers : {
                     "Content-Type" : "application/json",
+                    "Authorization" : `Bearer ${token}`
                 },
                 data : body,
             }).then((res) => {
@@ -150,7 +189,6 @@ const SingleBlog = () => {
         }
     }
 
-    console.log(blog);
     const totalLike = blog.likes;
   return (
     <>
@@ -195,16 +233,7 @@ const SingleBlog = () => {
                           <span className="media-total-like">
                                 Total Like {totalLike !== undefined ? totalLike.length : "0"}
                           </span>
-                          <div className="hr"></div>
-                          {/* <form>
-                              <div className='addCommentBox'>
-                                  <textarea placeholder='Add Your Comment...' name='comment' onChange={(e) => {setComment(e.target.value)}} value={comment}></textarea>
-                                  <div>
-                                      <input type="submit" value={'post'} disabled={(comment === "" ? true : false)}/>
-                                  </div>
-                              </div>
-                          </form>
-                          <div className="hr"></div> */}
+                          <CurrentJounBlog blogs={jounCunBlog}/>
                       </div>
                   </div>
               <div className="singleBlog-container__contentContainer-relatedNews">
@@ -213,7 +242,7 @@ const SingleBlog = () => {
                     </span>
                     <div className="relatedNews_container">
                         {
-                            latestBlog.map((e) => {
+                            React.Children.toArray(latestBlog.map((e) => {
                                     return (
                                         <a href={`/blog/${e._id}`} >
                                             <div className="relatedNews_container-card">
@@ -226,7 +255,7 @@ const SingleBlog = () => {
                                         </div>
                                         </a>
                                     )
-                            })
+                            }))
                         }
                     </div>
               </div>

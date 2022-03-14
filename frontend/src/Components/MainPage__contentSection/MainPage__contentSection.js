@@ -15,7 +15,7 @@ const MainPage__contentSection = ({sectionName,data}) => {
         </div>
         <div className="MainPage__contentSection-container__newsContainer">
             {
-                data.map((e,i) => {
+                React.Children.toArray(data.map((e,i) => {
                     if(i < 4){
                         return(
                             <>
@@ -36,7 +36,7 @@ const MainPage__contentSection = ({sectionName,data}) => {
                             </>
                         )
                     }
-                })
+                }))
             }
         </div>
     </div>
