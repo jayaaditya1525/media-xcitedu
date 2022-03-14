@@ -1,7 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 const generateToken = require("../middlewares/generateToken");
-const nodemailer = require("nodemailer");
+const Mailer = require("../middlewares/MailerSender");
 
 /*
 LIST OF CONTROLLERS
@@ -21,92 +21,38 @@ const registerUser = asyncHandler(async (req, res) => {
         throw new Error("User already exists");
     } else {
 
-    //     res.status(200).json({
-    //         success: true,
-    //         emailSuccess: true,
-    //         message: "User Register Successfully",
-            
-    //     });
-    // }
-
     
         const user = await User.create({
             name, email, password
         });
-        // const userId = user._id;
 
         if (user) {
             const output = `
-      '<h2>Welcome to XcitEducation! </h2>
-    <p>You have registered successfully</p>
-    <h3>Your Account Details:</h3>
-    <ul>
-      <li>Name : ${req.body.name}</li>
-      <li>Email : ${req.body.email}</li>
-      <li>Password : ${req.body.password}</li>
-    </ul>
-    <p>Please save your account details for future references</p>
-    <p></p>
-    <p>Regards</p>
-    <p>Team XcitEducation</p>
-  `;
-            // create reusable transporter object using the default SMTP transport
-            let transporter = nodemailer.createTransport({
-                // host: "smtp.ethereal.email",
-                port: 587,
-                secure: false, // true for 465, false for other ports
-                auth: {
-                    user: `ercommerceWebsite@gmail.com`, // generated ethereal user
-                    pass: "`//ercommerceWebsite\\`", // generated ethereal password
-                },
-                // If on localhost
-                tls: {
-                    rejectUnauthorized: false,
-                },
-                service: "gmail",
-            });
+                    '<h2>Welcome to XcitEducation! </h2>
+                    <p>You have registered successfully</p>
+                    <h3>Your Account Details:</h3>
+                    <ul>
+                    <li>Name : ${req.body.name}</li>
+                    <li>Email : ${req.body.email}</li>
+                    <li>Password : ${req.body.password}</li>
+                    </ul>
+                    <p>Please save your account details for future references</p>
+                    <p></p>
+                    <p>Regards</p>
+                    <p>Team XcitEducation</p>
+                `;
+        
+                
 
-            // send mail with defined transport object
-            let mailOptions = {
-                // from: '"Nodemailer Testing" <raj.sanghavi1@svkmmumbai.onmicrosoft.com>', // sender address
-                from: "Abhishek",
-                to: `${user.email}`, // list of receivers
-                subject: "Registration Successful ✔", // Subject line
-                // text: "Hello world?", // plain text body
-                // html: "<b>Hello world?</b>", // html body
-                html: output,
-                // attachments: [
-                //   {
-                //     path: "/home/ubuntu/MYFOLDER/Cloned/E-Commerce/frontend/public/images/alexa.jpg",
-                //   },
-                // ],
-            };
-
-            transporter.sendMail(mailOptions, (error, info) => {
-                if (error) {
-                    res.json(error);
-                } else {
-                    console.log("Message sent: %s", info.messageId);
-                    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-                    res.status(200).json({
-                        success: true,
-                        emailSuccess: true,
-                        data: user,
-                    });
-                    // res.status(200).json({
-                    //   _id: user._id,
-                    //   name: user.name,
-                    //   email: user.email,
-                    //   isInstructor: user.isInstructor,
-                    //   isAdmin: user.isAdmin,
-                    //   token: generateToken(user._id),
-                    //   message: "User Register Successful",
-                    //   emailMessage: "Email Sent",
-                    // });
-                    // res.json(req.body);
-                    // res.json({ msg: "Email sent" });
-                }
-            });
+            Mailer("html",output,email);
+            
+                res.status(200).json({
+                    success: true,
+                    emailSuccess: true,
+                    message: "User Register Successfully",
+                    Mail : `Mail send to ${email}`
+                });
+           
         } else {
             res.status(404);
             throw new Error("User not created");
