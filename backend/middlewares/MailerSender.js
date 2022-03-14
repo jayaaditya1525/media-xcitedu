@@ -2,14 +2,16 @@ const nodemailer = require("nodemailer");
 const Mailer = (mailType='text', mail, to) => {
 
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: process.env.SMTP_HOST,
+    port: process.env.SMTP_PORT,
+    service: process.env.SMTP_SERVICE,
     auth: {
       user: process.env.FSS_EMAIL,
       pass: process.env.FSS_PASSWORD,
     },
   });
 
-  console.log(process.env.FSS_EMAIL,process.env.FSS_PASSWORD);
+  
 
   const mailOptions = {
     from: process.env.FSS_EMAIL,
