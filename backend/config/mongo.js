@@ -7,7 +7,7 @@ const connectDB = () => {
             console.log(`Mongo Is Host on ${res.connection.host}`);
         })
     } catch (error) {
-        console.log(`Some thing Went Wrong : ${error}`);
+        console.log(`Something Went Wrong : ${error}`);
     }
 };
 
